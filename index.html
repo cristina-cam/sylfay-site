@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sylfay – Objets naturels & artisanaux</title>
+  <meta name="description" content="Sylfay crée des objets décoratifs naturels et artisanaux : diffuseurs de parfum, vases, boîtes et compositions en plâtre naturel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+
+    /* ─── VARIABLES ─────────────────────────────────────────── */
+    :root {
+      --vert:   #38af44;
+      --brun:   #c0a994;
+      --creme:  #faf8f4;
+      --gris:   #f2efea;
+      --texte:  #2a2a2a;
+      --leger:  #7a7067;
+      --blanc:  #ffffff;
+    }
+
+    /* ─── RESET ─────────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      color: var(--texte);
+      background: var(--creme);
+    }
+
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ─── LANGUE ─────────────────────────────────────────────── */
+    .it-only { display: none; }
+    body.it .fr-only { display: none; }
+    body.it .it-only { display: block; }
+    body.it span.fr-only { display: none; }
+    body.it span.it-only { display: inline; }
+    span.it-only { display: none; }
+
+    /* ─── TYPOGRAPHIE ────────────────────────────────────────── */
+    .serif      { font-family: 'Playfair Display', serif; }
+    .serif-i    { font-family: 'Playfair Display', serif; font-style: italic; }
+    .upper      { text-transform: uppercase; letter-spacing: 0.12em; font-size: 11px; }
+    .muted      { color: var(--leger); }
+
+    /* ─── NAVIGATION ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(92,74,54,.1);
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+    }
+
+    .nav-logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--vert);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--leger);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brun);
+      transition: color .2s;
+    }
+
+    .nav-menu a:hover { color: var(--vert); }
+
+    .nav-lang {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--leger);
+      background: none;
+      border: 1px solid var(--leger);
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .nav-lang:hover { color: var(--brun); border-color: var(--brun); }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--brun);
+      transition: all .25s;
+    }
+
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-img img { object-position: center; }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.1) 0%, rgba(0,0,0,.28) 100%);
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 100%;
+      padding: 0 24px;
+    }
+
+    .hero-logo {
+      height: 160px;
+      width: auto;
+      margin: 0 auto 28px;
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,.25));
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blanc);
+      border: 1px solid rgba(255,255,255,.7);
+      padding: 14px 36px;
+      transition: all .25s;
+      margin-top: 8px;
+    }
+
+    .hero-cta:hover {
+      background: var(--blanc);
+      color: var(--brun);
+      border-color: var(--blanc);
+    }
+
+    /* ─── INTRO ──────────────────────────────────────────────── */
+    .intro {
+      max-width: 680px;
+      margin: 100px auto;
+      padding: 0 32px;
+      text-align: center;
+    }
+    .univers-layout {
+      max-width: 1100px;
+      margin: 100px auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .univers-texte {
+      text-align: left;
+    }
+    .univers-texte .intro-tag { margin-bottom: 16px; }
+    .univers-texte h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 400; line-height: 1.25; color: var(--brun); margin-bottom: 28px; }
+    .univers-texte h2 em { font-style: italic; color: var(--vert); }
+    .univers-texte p { font-size: 15px; line-height: 1.9; color: var(--leger); margin-bottom: 12px; }
+    .univers-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 264px 264px;
+      gap: 12px;
+    }
+    .univers-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .univers-images img:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .intro-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--vert);
+      margin-bottom: 24px;
+    }
+
+    .intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--brun);
+      margin-bottom: 28px;
+    }
+
+    .intro h2 em {
+      font-style: italic;
+      color: var(--vert);
+    }
+
+    .intro p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--leger);
+    }
+
+    /* ─── BANDE CRÉATIONS ────────────────────────────────────── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto 48px;
+      padding: 0 40px;
+    }
+
+    .section-label span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--leger);
+      white-space: nowrap;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(92,74,54,.15);
+    }
+
+    /* ─── GRILLE PRODUITS ────────────────────────────────────── */
+    .produits {
+      max-width: 1200px;
+      margin: 0 auto 100px;
+      padding: 0 40px;
+    }
+
+    .categorie {
+      margin-bottom: 72px;
+    }
+
+    .categorie-titre {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--brun);
+      margin-bottom: 32px;
+    }
+
+    .produit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* Large grid variants */
+    .produit-grid.two-col { grid-template-columns: repeat(2, 1fr); }
+
+    .produit-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .produit-card-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .produit-card-img img {
+      transition: transform .6s cubic-bezier(.25,.46,.45,.94);
+    }
+
+    .produit-card:hover .produit-card-img img {
+      transform: scale(1.06);
+    }
+
+    .produit-card-info {
+      padding: 14px 0 0;
+    }
+
+    .produit-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--brun);
+      margin-bottom: 4px;
+    }
+
+    .produit-desc {
+      margin-top: 10px;
+      border-top: 1px solid rgba(192,169,148,.25);
+      padding-top: 8px;
+    }
+    .produit-desc-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--leger);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .produit-desc-btn::before { content: '﹢'; font-size: 13px; }
+    .produit-desc.open .produit-desc-btn::before { content: '﹣'; }
+    .produit-desc-content {
+      display: none;
+      margin-top: 10px;
+    }
+    .produit-desc.open .produit-desc-content { display: block; }
+    .produit-desc p {
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--leger);
+      margin-top: 10px;
+    }
+
+    .produit-card-detail {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--leger);
+      letter-spacing: 0.06em;
+    }
+
+    /* Hover overlay */
+    .produit-card-overlay {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: calc(100% - 60px);
+      background: rgba(56, 175, 68, .88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .produit-card:hover .produit-card-overlay { opacity: 1; }
+
+    .produit-card-overlay span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blanc);
+    }
+
+    /* ─── BANDE FULL-WIDTH ───────────────────────────────────── */
+    .bande {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+      margin: 0 0 100px;
+    }
+
+    .bande-img { overflow: hidden; }
+    .bande-img img { transition: transform .8s ease; }
+    .bande:hover .bande-img img { transform: scale(1.03); }
+
+    .bande-text {
+      background: var(--gris);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+    }
+
+    .bande-text .tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--vert);
+      margin-bottom: 20px;
+    }
+
+    .bande-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--brun);
+      margin-bottom: 24px;
+    }
+
+    .bande-text h2 em { font-style: italic; }
+
+    .bande-text p {
+      font-size: 14px;
+      line-height: 1.95;
+      color: var(--leger);
+      margin-bottom: 16px;
+    }
+
+    .bande-text .lien {
+      margin-top: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brun);
+      transition: gap .2s;
+    }
+
+    .bande-text .lien:hover { gap: 14px; }
+    body:not(.it) .bande-text .lien.it-only { display: none; }
+    body.it .bande-text .lien.fr-only { display: none; }
+    .bande-text .lien::after { content: '→'; }
+
+    /* ─── ETSY ───────────────────────────────────────────────── */
+    .etsy-band {
+      background: var(--brun);
+      text-align: center;
+      padding: 72px 24px;
+    }
+
+    .etsy-band .tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 16px;
+    }
+
+    .etsy-band h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--blanc);
+      margin-bottom: 16px;
+    }
+
+    .etsy-band p {
+      font-size: 14px;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+    .btn-etsy {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brun);
+      background: var(--blanc);
+      padding: 16px 44px;
+      transition: all .25s;
+    }
+
+    .btn-etsy:hover { background: var(--creme); }
+
+    /* ─── SÉPARATEUR ────────────────────────────────────────────── */
+    .separateur {
+      display: flex;
+      justify-content: center;
+      padding: 40px 0 0;
+    }
+    .separateur img {
+      width: 36px;
+    }
+
+    /* ─── COUPS DE CŒUR ─────────────────────────────────────────── */
+    #coups {
+      background: #eef7ee;
+    }
+    #creations {
+      padding-top: 80px;
+    }
+    .coups {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+    .coups-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .coups-head .tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--leger);
+      margin-bottom: 12px;
+    }
+    .coups-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--texte);
+    }
+    .coups-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .coup-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .coup-card-img {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+    .coup-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .6s cubic-bezier(.25,.46,.45,.94);
+    }
+    .coup-card:hover .coup-card-img img { transform: scale(1.04); }
+    .coup-card.has-carousel:hover .coup-card-img img { transform: none; }
+    .coup-card-info {
+      padding: 18px 0 0;
+    }
+    .coup-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--brun);
+      margin-bottom: 6px;
+    }
+    .coup-card-detail {
+      font-size: 11px;
+      color: var(--leger);
+      letter-spacing: 0.06em;
+    }
+    .coups-cta {
+      margin-top: 56px;
+      text-align: center;
+    }
+    .coups-cta p {
+      font-size: 14px;
+      color: var(--leger);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-coups {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blanc);
+      background: var(--vert);
+      padding: 14px 36px;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-coups:hover { opacity: .85; }
+
+    @media (max-width: 600px) {
+      .coups { padding: 60px 20px; margin: 0 auto; }
+      .coups-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* ─── TARIFS ─────────────────────────────────────────────── */
+    .tarifs {
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 0 40px;
+    }
+
+    .tarifs-head {
+      margin-bottom: 48px;
+    }
+
+    .tarifs-head .tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--vert);
+      margin-bottom: 16px;
+    }
+
+    .tarifs-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--brun);
+      margin-bottom: 16px;
+    }
+
+    .tarifs-head p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--leger);
+      text-align: justify;
+    }
+
+    .tarif-band {
+      background: var(--brun);
+      text-align: center;
+      padding: 72px 24px;
+    }
+    .tarif-band .tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 16px;
+    }
+    .tarif-band h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--blanc);
+      margin-bottom: 16px;
+    }
+    .tarif-band p {
+      font-size: 14px;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 36px;
+    }
+    .btn-tarif {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brun);
+      background: var(--blanc);
+      padding: 16px 44px;
+      text-decoration: none;
+      transition: background .25s;
+    }
+    .btn-tarif:hover { background: var(--creme); }
+
+    .tarif-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .tarif-table th {
+      text-align: left;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--leger);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(92,74,54,.15);
+    }
+
+    .tarif-table td {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(92,74,54,.08);
+      color: var(--texte);
+    }
+
+    .tarif-table tr:last-child td { border-bottom: none; }
+
+    .tarif-note {
+      margin-top: 24px;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--leger);
+    }
+
+    /* ─── CONTACT ────────────────────────────────────────────── */
+    .contact {
+      background: var(--gris);
+      text-align: center;
+      padding: 100px 24px;
+    }
+
+    .contact .tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--vert);
+      margin-bottom: 20px;
+    }
+
+    .contact h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      color: var(--brun);
+      margin-bottom: 16px;
+    }
+
+    .contact p {
+      font-size: 14px;
+      color: var(--leger);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .contact-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-contact {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brun);
+      border: 1px solid rgba(92,74,54,.4);
+      padding: 14px 32px;
+      transition: all .2s;
+    }
+
+    .btn-contact:hover {
+      background: var(--brun);
+      color: var(--blanc);
+      border-color: var(--brun);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--texte);
+      text-align: center;
+      padding: 24px;
+      font-size: 11px;
+      color: rgba(255,255,255,.35);
+      letter-spacing: 0.08em;
+    }
+    footer a {
+      color: rgba(255,255,255,.5);
+      text-decoration: none;
+    }
+    footer a:hover { color: white; }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      background: var(--blanc);
+      border: 1px solid rgba(192,169,148,.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s, transform .3s;
+      z-index: 200;
+      text-decoration: none;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-3px); }
+    .back-to-top svg { width: 16px; height: 16px; stroke: var(--brun); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .nav-menu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--creme); padding: 20px; gap: 20px; border-bottom: 1px solid rgba(92,74,54,.1); }
+      .nav-menu.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      .intro { margin: 72px auto; }
+      .univers-layout { grid-template-columns: 1fr; margin: 40px auto; padding: 0 20px; gap: 32px; align-items: start; }
+      .univers-images { grid-template-columns: 1fr; grid-template-rows: 220px 220px 220px; gap: 10px; }
+      .univers-images img:first-child { grid-row: auto; }
+      .produits { padding: 0 20px; }
+      .produit-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .produit-grid.two-col { grid-template-columns: 1fr; }
+      .bande { grid-template-columns: 1fr; }
+      .bande-img { aspect-ratio: 3/4; }
+      .bande-text { padding: 48px 28px; }
+      .tarifs { padding: 0 20px; }
+      .section-label { padding: 0 20px; }
+    }
+
+    @media (max-width: 600px) {
+      .produit-grid { grid-template-columns: 1fr; }
+      .hero-logo { height: 72px; }
+    }
+
+    /* ── Carrousel ────────────────────────────────────────────────── */
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform .45s cubic-bezier(.25,.46,.45,.94);
+    }
+    .carousel-track img {
+      flex-shrink: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .has-carousel .produit-card-img img { transition: none; }
+    .has-carousel:hover .produit-card-img img { transform: none; }
+    .has-desc .produit-card-overlay { opacity: 0 !important; pointer-events: none; }
+    .has-desc:hover .produit-card-img img { transform: none; }
+    .has-desc { overflow: visible; }
+    .coup-card.has-desc { overflow: visible; }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,.75);
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--texte);
+      padding: 0;
+      transition: background .2s;
+      z-index: 10;
+    }
+    .carousel-btn:hover { background: rgba(255,255,255,.95); }
+    .carousel-prev { left: 8px; }
+    .carousel-next { right: 8px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      z-index: 10;
+    }
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.5);
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .carousel-dot.active { background: #fff; }
+
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ───────────────────────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="#accueil">
+    <span class="nav-logo-name">Sylfay</span>
+    <span class="nav-logo-sub fr-only">alchimies naturelles</span>
+    <span class="nav-logo-sub it-only">alchimie naturali</span>
+  </a>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="#univers" onclick="closeMenu()"><span class="fr-only">L'univers</span><span class="it-only">L'universo</span></a></li>
+    <li><a href="#coups" onclick="closeMenu()"><span class="fr-only">Coup de cœur</span><span class="it-only">Selezione</span></a></li>
+    <li><a href="#creations" onclick="closeMenu()"><span class="fr-only">Créations</span><span class="it-only">Creazioni</span></a></li>
+    <li><a href="#apropos" onclick="closeMenu()"><span class="fr-only">À propos</span><span class="it-only">Chi sono</span></a></li>
+    <li><a href="#tarifs" onclick="closeMenu()"><span class="fr-only">Professionnels</span><span class="it-only">Professionisti</span></a></li>
+    <li><a href="#contact" onclick="closeMenu()"><span class="fr-only">Contact</span><span class="it-only">Contatti</span></a></li>
+    <li><button class="nav-lang" onclick="toggleLang()">IT / FR</button></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────────────────────── -->
+<section class="hero" id="accueil">
+  <div class="hero-img">
+    <img src="images/ambiance/hero.jpg" alt="Sylfay">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img class="hero-logo" src="images/logo/sylfay-logo-principal.png" alt="Sylfay">
+    <br>
+    <a href="https://www.etsy.com/shop/InfiligranaAtelier" target="_blank" rel="noopener" class="hero-cta">
+      <span class="fr-only">Boutique en ligne</span>
+      <span class="it-only">Negozio online</span>
+    </a>
+  </div>
+</section>
+
+<!-- ─── INTRO ─────────────────────────────────────────────────── -->
+<section id="univers">
+  <div class="intro" style="margin-bottom: 0; padding-bottom: 0;">
+    <p class="intro-tag fr-only">L'univers Sylfay</p>
+    <p class="intro-tag it-only">L'universo Sylfay</p>
+    <h2 class="fr-only">Des objets uniques<br><span style="color:var(--vert)"><em>pour enchanter le quotidien</em></span></h2>
+    <h2 class="it-only">Oggetti unici<br><span style="color:var(--vert)"><em>per incantare il quotidiano</em></span></h2>
+    <p class="intro-tag fr-only">Esprit Sylfay</p>
+    <p class="fr-only">Des créations inspirées par la nature, entre pureté des matières et une touche de poésie discrète.</p>
+    <p class="intro-tag it-only">Spirito Sylfay</p>
+    <p class="it-only">Creazioni ispirate dalla natura, tra purezza delle materie e un tocco di poesia discreta.</p>
+  </div>
+  <div class="univers-layout">
+    <div class="univers-texte">
+      <hr class="fr-only" style="border: none; border-top: 1px solid rgba(192,169,148,.3); margin: 0 0 24px;">
+      <p class="fr-only">Sylfay puise son inspiration dans la campagne française, ses paysages et ses saisons, ainsi que dans les mythes et légendes qui racontent notre lien ancien à la nature.</p>
+      <p class="fr-only">Chaque création associe la pureté des matières simples à une touche de poésie discrète, pour transformer les gestes du quotidien en petits rituels sensoriels, un moment suspendu, une respiration, un plaisir retrouvé.</p>
+      <p class="fr-only">Le plâtre, minéral et lumineux, devient entre nos mains une matière sensible. Chaque pièce est coulée, démoulée et finie artisanalement, avec ses nuances, ses aspérités et ses petites irrégularités qui la rendent unique.</p>
+      <p class="fr-only">&nbsp;</p>
+      <p class="fr-only"><em>Sylfay – enchanter le quotidien, un objet à la fois.</em></p>
+      <hr class="it-only" style="border: none; border-top: 1px solid rgba(192,169,148,.3); margin: 0 0 24px;">
+      <p class="it-only">Sylfay trae ispirazione dalla campagna francese, dai suoi paesaggi e dalle sue stagioni, così come dai miti e dalle leggende che raccontano il nostro antico legame con la natura.</p>
+      <p class="it-only">Ogni creazione unisce la purezza delle materie semplici a un tocco di poesia discreta, per trasformare i gesti del quotidiano in piccoli rituali sensoriali, un momento sospeso, un respiro, un piacere ritrovato.</p>
+      <p class="it-only">Il gesso, minerale e luminoso, diventa tra le nostre mani una materia sensibile. Ogni pezzo è colato, sformato e rifinito artigianalmente, con le sue sfumature, le sue asperità e le sue piccole irregolarità che lo rendono unico.</p>
+      <p class="it-only">&nbsp;</p>
+      <p class="it-only"><em>Sylfay – incantare il quotidiano, un oggetto alla volta.</em></p>
+    </div>
+    <div class="univers-images">
+      <img src="images/ambiance-roses-sechees.jpg" alt="Roses séchées – univers Sylfay">
+      <img src="images/ambiance-atelier.jpg" alt="Atelier Sylfay">
+      <img src="images/ambiance-marguerites.jpg" alt="Marguerites séchées – univers Sylfay">
+    </div>
+  </div>
+</section>
+
+<!-- ─── COUPS DE CŒUR ─────────────────────────────────────────── -->
+<section id="coups">
+  <div class="coups">
+    <div class="coups-head">
+      <div class="separateur" style="margin-bottom: 24px;"><img src="images/picto-separateur-transparent.png" alt="" style="filter: brightness(0) saturate(100%) invert(51%) sepia(69%) saturate(442%) hue-rotate(92deg) brightness(93%) contrast(92%);"></div>
+      <p class="tag fr-only">Coup de cœur</p>
+      <p class="tag it-only">Selezione</p>
+      <h2 class="fr-only">Mes incontournables</h2>
+      <h2 class="it-only">I miei preferiti</h2>
+    </div>
+    <div class="coups-grid">
+      <div class="coup-card has-carousel has-desc">
+        <div class="coup-card-img">
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img src="images/diffuseurs/suspendre-3.jpg" alt="Diffuseur à suspendre">
+              <img src="images/diffuseurs/suspendre-2.jpg" alt="Diffuseur à suspendre – vue 2">
+              <img src="images/diffuseurs/suspendre-1.jpg" alt="Diffuseur à suspendre – vue 3">
+              <img src="images/diffuseurs/suspendre-4.jpg" alt="Diffuseur à suspendre – vue 4">
+              <img src="images/diffuseurs/suspendre-5.jpg" alt="Diffuseur à suspendre – vue 5" style="object-position: 75% 92%">
+              <img src="images/diffuseurs/suspendre-6.jpg" alt="Diffuseur à suspendre – vue 6">
+            </div>
+            <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+            <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+            </div>
+          </div>
+        </div>
+        <div class="coup-card-info">
+          <p class="coup-card-name fr-only">Diffuseur à suspendre</p>
+          <p class="coup-card-name it-only">Diffusore da appendere</p>
+          <p class="coup-card-detail fr-only">Plâtre naturel · ruban inclus · fait main</p>
+          <p class="coup-card-detail it-only">Gesso naturale · nastro incluso · fatto a mano</p>
+          <div class="produit-desc fr-only">
+            <button class="produit-desc-btn" type="button">Description</button>
+            <div class="produit-desc-content">
+              <p>Un médaillon en plâtre naturel, à suspendre ou à poser. Il suffit de déposer quelques gouttes d'huile essentielle sur la surface : le plâtre absorbe et restitue le parfum lentement, sans chaleur ni électricité. Chaque pièce est unique, avec ses légères variations de forme et de teinte. Ruban de suspension inclus.</p>
+            </div>
+          </div>
+          <div class="produit-desc it-only">
+            <button class="produit-desc-btn" type="button">Descrizione</button>
+            <div class="produit-desc-content">
+              <p>Un medaglione in gesso naturale, da appendere o appoggiare. Basta versare qualche goccia di olio essenziale sulla superficie : il gesso assorbe e restituisce il profumo lentamente, senza calore né elettricità. Ogni pezzo è unico, con le sue lievi variazioni di forma e colore. Nastro di sospensione incluso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="coup-card has-carousel has-desc">
+        <div class="coup-card-img">
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img src="images/objets/porte-bijoux-1.jpg" alt="Porte-bijoux">
+              <img src="images/objets/porte-bijoux-2.jpg" alt="Porte-bijoux – vue 2">
+              <img src="images/objets/porte-bijoux-3.jpg" alt="Porte-bijoux – vue 3">
+              <img src="images/objets/porte-bijoux-4.jpg" alt="Porte-bijoux – vue 4">
+              <img src="images/objets/porte-bijoux-5.jpg" alt="Porte-bijoux – vue 5">
+              <img src="images/objets/porte-bijoux-6.jpg" alt="Porte-bijoux – vue 6">
+              <img src="images/objets/porte-bijoux-7.jpg" alt="Porte-bijoux – vue 7">
+              <img src="images/objets/porte-bijoux-8.jpg" alt="Porte-bijoux – vue 8">
+              <img src="images/objets/porte-bijoux-9.jpg" alt="Porte-bijoux – vue 9">
+            </div>
+            <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+            <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+            </div>
+          </div>
+        </div>
+        <div class="coup-card-info">
+          <p class="coup-card-name fr-only">Plateau à bijoux</p>
+          <p class="coup-card-name it-only">Vassoio portagioielli</p>
+          <p class="coup-card-detail fr-only">Plâtre naturel · finition mate · fait main</p>
+          <p class="coup-card-detail it-only">Gesso naturale · finitura opaca · fatto a mano</p>
+          <div class="produit-desc fr-only">
+            <button class="produit-desc-btn" type="button">Description</button>
+            <div class="produit-desc-content">
+              <p>Un plateau en plâtre naturel, façonné à la main, pour poser bagues, colliers et petites boucles d'oreilles. Ses formes en relief permettent d'organiser les bijoux sans les mélanger : pratique sur une table de nuit ou une coiffeuse. Finition mate effet céramique, traité avec un scellant imperméabilisant. Diamètre 11 cm, hauteur 1,5 cm. Disponible en blanc naturel et bleu clair. À tenir à l'écart de l'eau et de l'humidité.</p>
+            </div>
+          </div>
+          <div class="produit-desc it-only">
+            <button class="produit-desc-btn" type="button">Descrizione</button>
+            <div class="produit-desc-content">
+              <p>Un vassoio in gesso naturale, lavorato a mano, per posare anelli, collane e piccoli orecchini. Le sue forme in rilievo permettono di organizzare i gioielli senza mescolarli : pratico su un comodino o una toeletta. Finitura opaca effetto ceramica, trattato con sigillante impermeabilizzante. Diametro 11 cm, altezza 1,5 cm. Disponibile in bianco naturale e azzurro chiaro. Tenere lontano dall'acqua e dall'umidità.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="coups-cta">
+      <p class="fr-only">Ces deux créations sont disponibles sur commande, avec le coloris et les finitions de votre choix. Délai de fabrication : 2 semaines.</p>
+      <p class="it-only">Queste due creazioni sono disponibili su ordinazione, con il colore e le finiture a tua scelta. Tempo di produzione: 2 settimane.</p>
+      <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20un%20produit%20Sylfay." class="btn-coups" target="_blank" rel="noopener">
+        <span class="fr-only">Commander sur WhatsApp</span>
+        <span class="it-only">Ordina su WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CRÉATIONS ─────────────────────────────────────────────── -->
+<section id="creations">
+  <div class="section-label">
+    <span class="fr-only">Mes créations</span>
+    <span class="it-only">Le mie creazioni</span>
+  </div>
+
+  <div class="produits">
+
+    <!-- Diffuseurs -->
+    <div class="categorie">
+      <h3 class="categorie-titre fr-only">Diffuseurs de parfum</h3>
+      <h3 class="categorie-titre it-only">Diffusori di profumo</h3>
+      <div class="produit-grid">
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/diffuseurs/diffuseur-1.jpg" alt="Diffuseur fleur">
+                <img src="images/diffuseurs/fleur-1.png" alt="Diffuseur fleur – détouré">
+                <img src="images/diffuseurs/fleur-4.jpg" alt="Diffuseur fleur – ambiance">
+                <img src="images/diffuseurs/fleur-5.jpg" alt="Diffuseur fleur – vue 5">
+                <img src="images/diffuseurs/20260204_182944.jpg" alt="Diffuseur fleur – vue 6">
+                <img src="images/diffuseurs/20260204_183106.jpg" alt="Diffuseur fleur – vue 7">
+                <img src="images/diffuseurs/20260124_105211.jpg" alt="Diffuseur fleur – vue 8">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Fleur diffuseur dans sa boîte</span>
+            <span class="it-only">Fiore diffusore nella sua scatola</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Fleur diffuseur dans sa boîte</p>
+            <p class="produit-card-name it-only">Fiore diffusore nella sua scatola</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Coulée dans un moule en forme de fleur épanouie, cette pièce en plâtre naturel diffuse un parfum d'intérieur tout en douceur. Il suffit de déposer quelques gouttes d'huile essentielle : le plâtre absorbe et restitue le parfum sans chaleur ni électricité. Livrée dans sa petite boîte, elle est prête à offrir ou à poser. Elle peut aussi s'associer au plateau Sylfay pour une présentation soignée. Aucune pièce n'est tout à fait identique à la précédente.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Realizzata in uno stampo a forma di fiore sbocciato, questa pièce in gesso naturale diffonde una fragranza d'ambiente con delicatezza. Basta versare qualche goccia di olio essenziale : il gesso assorbe e restituisce il profumo senza calore né elettricità. Consegnata nella sua piccola scatola, è pronta da regalare o da posare. Può essere abbinata al vassoio Sylfay per una presentazione curata. Nessun pezzo è del tutto identico al precedente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/roses/sylfay-diffuseur-rose-plâtre.jpg" alt="Rose – diffuseur">
+                <img src="images/roses/rose-2.jpg" alt="Rose en plâtre – vue 2">
+                <img src="images/roses/20260319_095154.jpg" alt="Rose – détail">
+                <img src="images/roses/20260319_095212.jpg" alt="Rose – coloris">
+                <img src="images/roses/diffuseur rose avec plateau.jpg" alt="Rose avec plateau">
+                <img src="images/roses/sylfay-rose-plâtre.jpg" alt="Rose Sylfay">
+                <img src="images/roses/20260405_094539.jpg" alt="Rose – ambiance">
+                <img src="images/diffuseurs/20260319_092844.jpg" alt="Rose – vue 8">
+                <img src="images/diffuseurs/20260503_110909.jpg" alt="Rose – vue 9">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Rose diffuseur avec plateau</span>
+            <span class="it-only">Rosa diffusore con vassoio</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Rose diffuseur avec plateau</p>
+            <p class="produit-card-name it-only">Rosa diffusore con vassoio</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · pigments minéraux · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · pigmenti minerali · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Une rose en plâtre naturel, posée sur son plateau en forme de fleur. Il suffit de déposer quelques gouttes d'huile essentielle ou de parfum : le plâtre absorbe et diffuse la senteur doucement, au fil du temps. Objet décoratif autant que rituel, il apporte à la maison un peu de ce calme végétal et de cette douceur du printemps. Vendu en coffret : rose (Ø 8 cm, h. 3 cm) + plateau fleur (Ø 13 cm). Disponible en blanc ou rose. Aucune pièce n'est tout à fait identique.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Una rosa in gesso naturale, posata sul suo vassoio a forma di fiore. Basta versare qualche goccia di olio essenziale o di profumo : il gesso assorbe e diffonde la fragranza lentamente, nel tempo. Oggetto decorativo quanto rituale, porta in casa quella quiete vegetale e quella dolcezza della primavera. Venduto in cofanetto : rosa (Ø 8 cm, h. 3 cm) + vassoio fiore (Ø 13 cm). Disponibile in bianco o rosa. Nessun pezzo è del tutto identico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/diffuseurs/20260305_161821.jpg" alt="Médaillon ailes d'ange">
+                <img src="images/diffuseurs/20260305_162800.jpg" alt="Médaillon ailes d'ange – détail">
+                <img src="images/diffuseurs/20260305_162819.jpg" alt="Médaillon ailes d'ange – coloris">
+                <img src="images/diffuseurs/20260305_162832.jpg" alt="Médaillon ailes d'ange – ambiance">
+                <img src="images/diffuseurs/20260305_163002.jpg" alt="Médaillon ailes d'ange – série">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Médaillon « Ailes d'ange »</span>
+            <span class="it-only">Medaglione « Ali d'angelo »</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Médaillon « Ailes d'ange »</p>
+            <p class="produit-card-name it-only">Medaglione « Ali d'angelo »</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · ruban satin noir · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · nastro raso nero · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Un diffuseur de parfum en forme d'ailes d'ange, coulé à la main en plâtre naturel. Il suffit de déposer quelques gouttes d'huile essentielle ou de parfum sur l'arrière : le plâtre absorbe et diffuse la senteur pendant plusieurs jours, sans chaleur ni électricité. À suspendre dans une armoire, un dressing, une valise ou un tiroir, ou simplement à poser comme une pièce décorative. Ruban de satin noir inclus. Chaque médaillon est unique.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Un diffusore di profumo a forma di ali d'angelo, colato a mano in gesso naturale. Basta versare qualche goccia di olio essenziale o di profumo sul retro : il gesso assorbe e diffonde la fragranza per diversi giorni, senza calore né elettricità. Da appendere in un armadio, uno spogliatoio, una valigia o un cassetto, o semplicemente da posare come oggetto decorativo. Nastro di raso nero incluso. Ogni medaglione è unico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/diffuseurs/20260130_145337.jpg" alt="Médaillon Fleur – vue 1">
+                <img src="images/diffuseurs/20260130_143946.jpg" alt="Médaillon Fleur – vue 2">
+                <img src="images/diffuseurs/20260130_143925.jpg" alt="Médaillon Fleur – vue 3">
+                <img src="images/diffuseurs/20260130_144217.jpg" alt="Médaillon Fleur – vue 4">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Médaillon Fleur</span>
+            <span class="it-only">Medaglione Fiore</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Médaillon Fleur</p>
+            <p class="produit-card-name it-only">Medaglione Fiore</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Médaillon rond en plâtre naturel, moulé en forme de fleur aux pétales détaillés. Quelques gouttes d'huile essentielle déposées sur le plâtre suffisent : il absorbe et diffuse le parfum pendant plusieurs jours, sans chaleur ni électricité. À suspendre dans une armoire, un dressing ou une entrée, grâce au ruban de satin noir inclus. Vendu à l'unité. Chaque pièce est unique.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Medaglione rotondo in gesso naturale, modellato a forma di fiore con petali dettagliati. Qualche goccia di olio essenziale versata sul gesso è sufficiente : assorbe e diffonde la fragranza per diversi giorni, senza calore né elettricità. Da appendere in un armadio, uno spogliatoio o in un ingresso, grazie al nastro di raso nero incluso. Venduto singolarmente. Ogni pezzo è unico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Vases -->
+    <div class="categorie">
+      <h3 class="categorie-titre fr-only">Vases</h3>
+      <h3 class="categorie-titre it-only">Vasi</h3>
+      <div class="produit-grid">
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/diffuseurs/diffuseur-2.jpg" alt="Ginséa">
+                <img src="images/vases/20260430_140052.jpg" alt="Ginséa – vue 2" style="object-position: center 30%">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Vase abstrait « Ginséa »</span>
+            <span class="it-only">Vaso astratto « Ginséa »</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Vase abstrait « Ginséa »</p>
+            <p class="produit-card-name it-only">Vaso astratto « Ginséa »</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Une forme libre en plâtre naturel, qui évoque une racine de ginseng ou un tronc de baobab, noueuse, organique, légèrement asymétrique. Il peut accueillir une petite branche, une fleur séchée ou simplement exister seul, comme une présence silencieuse sur un meuble. Chaque pièce est unique, coulée et finalisée à la main.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Una forma libera in gesso naturale, che evoca una radice di ginseng o un tronco di baobab, nodosa, organica, leggermente asimmetrica. Può accogliere un piccolo ramo, un fiore secco o semplicemente esistere da solo, come una presenza silenziosa su un mobile. Ogni pezzo è unico, colato e rifinito a mano.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-desc">
+          <div class="produit-card-img">
+            <img src="images/vases/vase-2.jpg" alt="Vase Cristal">
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Vase « Cristal »</span>
+            <span class="it-only">Vaso « Cristal »</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Vase « Cristal »</p>
+            <p class="produit-card-name it-only">Vaso « Cristal »</p>
+            <p class="produit-card-detail fr-only">Plâtre teinté · fait main</p>
+            <p class="produit-card-detail it-only">Gesso colorato · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Petit vase trapu aux facettes géométriques, teinté en plâtre marbré noir et blanc. Ses pans taillés captent la lumière et lui donnent l'allure d'un cristal de roche. Idéal sur une table de repas ou un coin de meuble, il peut accueillir une ou deux fleurs séchées, ou simplement exister seul.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Piccolo vaso basso e arrotondato dalle faccette geometriche, in gesso marmorizzato nero e bianco. Le sue superfici tagliate catturano la luce e gli danno l'aspetto di un cristallo di rocca. Perfetto su una tavola apparecchiata o su un angolo di mobile, può ospitare uno o due fiori secchi, o esistere semplicemente da solo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/vases/vase-3.jpg" alt="Vase côtelé">
+                <img src="images/vases/20260511_150415.jpg" alt="Vase côtelé – vue de dessus">
+                <img src="images/vases/20260512_151205.jpg" alt="Vase côtelé – coloris rosé">
+                <img src="images/vases/vase-cotele-2.jpg" alt="Vase côtelé – vue 3">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Vase côtelé</span>
+            <span class="it-only">Vaso costolato</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Vase côtelé</p>
+            <p class="produit-card-name it-only">Vaso costolato</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · texture côtelée · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · texture costolata · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Vase cylindrique à nervures verticales régulières, teinté en deux tons : rose poudré en bas, blanc marbré en haut. La texture côtelée capte doucement la lumière et donne à la surface un rythme presque végétal. Idéal pour quelques tiges de fleurs séchées, il apporte une touche printanière et délicate à n'importe quel espace.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Vaso cilindrico con nervature verticali regolari, tinto in due toni: rosa cipria in basso, bianco marmorizzato in alto. La texture costolata cattura dolcemente la luce e conferisce alla superficie un ritmo quasi vegetale. Ideale per qualche stelo di fiori secchi, porta un tocco primaverile e delicato in qualsiasi spazio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/vases/anneau-1.jpg" alt="Vase anneau">
+                <img src="images/vases/anneau-2.jpg" alt="Vase anneau – vue 2">
+                <img src="images/vases/anneau-3.jpg" alt="Vase anneau – vue 3">
+                <img src="images/vases/anneau-4.jpg" alt="Vase anneau – ambiance">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Vase anneau</span>
+            <span class="it-only">Vaso anello</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Vase anneau</p>
+            <p class="produit-card-name it-only">Vaso anello</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · forme torique · deux tailles · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · forma torica · due misure · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Vase en forme d'anneau, coulé en plâtre naturel et fini à la main. Sa silhouette ronde et épurée crée un effet graphique fort, même sans fleurs. L'ouverture sur le dessus accueille quelques tiges séchées ou une branche légère. Disponible en deux tailles, il se pose seul ou se joue en duo sur un meuble, une étagère ou une tablette.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Vaso a forma di anello, colato in gesso naturale e rifinito a mano. La sua silhouette rotonda ed essenziale crea un effetto grafico deciso, anche senza fiori. L'apertura in cima accoglie qualche stelo secco o un ramo leggero. Disponibile in due misure, si posa da solo o si abbina in coppia su un mobile, una mensola o uno scaffale.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Boîtes -->
+    <div class="categorie">
+      <h3 class="categorie-titre fr-only">Boîtes décoratives</h3>
+      <h3 class="categorie-titre it-only">Scatole decorative</h3>
+      <div class="produit-grid">
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/boites/20260305_182942.jpg" alt="Boîte herbier sensorielle – détail">
+                <img src="images/boites/20260120_130627(1).jpg" alt="Boîte herbier sensorielle">
+                <img src="images/boites/20260305_183013.jpg" alt="Boîte herbier sensorielle – ouverture">
+                <img src="images/boites/20260305_183440.jpg" alt="Boîte herbier sensorielle – ambiance">
+                <img src="images/boites/sylfay-cartes-oracle-herbier.png" alt="Boîte herbier sensorielle – cartes des saisons">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Boîte herbier sensorielle</span>
+            <span class="it-only">Scatola erbario sensoriale</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Boîte herbier sensorielle</p>
+            <p class="produit-card-name it-only">Scatola erbario sensoriale</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · fleurs séchées · cartes des saisons</p>
+            <p class="produit-card-detail it-only">Gesso naturale · fiori secchi · carte delle stagioni</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Boîte en plâtre naturel, livrée avec un bouquet de fleurs séchées disposées à l'intérieur. Elle sert à conserver des pot-pourri parfumés ou de petits objets précieux, et se prête aussi à un usage rituel : chaque saison, on renouvelle les plantes séchées qu'elle abrite, comme un herbier vivant du temps qui passe. Livrée avec un jeu de cartes des saisons à glisser à l'intérieur.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Scatola in gesso naturale, fornita con un mazzetto di fiori secchi disposti all'interno. Serve a conservare pot-pourri profumati o piccoli oggetti preziosi, e si presta anche a un uso rituale: ogni stagione, si rinnovano le piante secche che contiene, come un erbario vivente del tempo che passa. Fornita con un set di carte delle stagioni da inserire all'interno.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-desc">
+          <div class="produit-card-img">
+            <img src="images/boites/20260504_105054.jpg" alt="Boîte deux étages">
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Boîte deux étages</span>
+            <span class="it-only">Scatola a due piani</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Boîte deux étages</p>
+            <p class="produit-card-name it-only">Scatola a due piani</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · couvercle ajusté · rose diffuseur naturel</p>
+            <p class="produit-card-detail it-only">Gesso naturale · coperchio adattato · rosa diffusore naturale</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Boîte ronde en deux parties, en plâtre teinté rose poudré, avec une texture côtelée sur le pourtour. À la fois porte-bijoux et pièce décorative, elle garde précieusement bagues, pendentifs et petits objets qu'on ne veut pas perdre. Elle trouve sa place sur une coiffeuse, en salle de bain ou sur une table de nuit.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Scatola rotonda in due parti, in gesso tinto rosa cipria, con texture costolata sul bordo. Allo stesso tempo portagioielli e pezzo decorativo, custodisce con cura anelli, ciondoli e piccoli oggetti che non si vogliono perdere. Trova il suo posto su una toilette, in un bagno o su un comodino.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/boites/boite-3.jpg" alt="Boîte Bloom – vue 1">
+                <img src="images/boites/boite-3b.jpg" alt="Boîte Bloom – vue 2" style="object-position: center 80%">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Boîte « Bloom »</span>
+            <span class="it-only">Scatola « Bloom »</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Boîte « Bloom »</p>
+            <p class="produit-card-name it-only">Scatola « Bloom »</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · diffuseur huile essentielle · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · diffusore olio essenziale · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Boîte ronde en plâtre aux flancs côtelés, surmontée d'une fleur en relief coulée dans la même matière. La fleur peut être chargée en huile essentielle pour diffuser doucement un parfum dans la pièce. Purement décorative en apparence, elle est aussi fonctionnelle : on peut glisser de petits objets à l'intérieur. Disponible en plusieurs coloris.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Scatola rotonda in gesso con i fianchi costolati, sormontata da un fiore in rilievo colato nella stessa materia. Il fiore può essere caricato con un olio essenziale per diffondere delicatamente un profumo nell'ambiente. Dall'aspetto puramente decorativo, è anche funzionale: si possono riporre piccoli oggetti all'interno. Disponibile in diversi colori.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/boites/boite-2.jpg" alt="Boîte Pivoine – vue 1">
+                <img src="images/boites/boite-grande-2.jpg" alt="Boîte Pivoine – vue 2">
+                <img src="images/boites/boite-grande-3.jpg" alt="Boîte Pivoine – vue 3">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Boîte « Pivoine »</span>
+            <span class="it-only">Scatola « Pivoine »</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Boîte « Pivoine »</p>
+            <p class="produit-card-name it-only">Scatola « Pivoine »</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · diffuseur huile essentielle · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · diffusore olio essenziale · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Grande boîte ronde en plâtre côtelé, surmontée d'une fleur généreuse en relief. La fleur peut être chargée en quelques gouttes d'huile essentielle pour diffuser un parfum doux et naturel dans la pièce. Idéale comme cadeau, elle est livrée avec un ruban de satin et une ficelle naturelle. Elle peut aussi servir à ranger des bijoux ou de petits souvenirs précieux.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Grande scatola rotonda in gesso costolato, sormontata da un fiore generoso in rilievo. Il fiore può essere caricato con qualche goccia di olio essenziale per diffondere delicatamente un profumo naturale nell'ambiente. Perfetta come regalo, viene fornita con un nastro di raso e uno spago naturale. Può anche essere usata per riporre gioielli o piccoli oggetti preziosi.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-desc">
+          <div class="produit-card-img">
+            <img src="images/boites/20260811_173904.jpg" alt="Boîte Confetti" style="object-position: center 75%">
+
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Boîte « Confetti »</span>
+            <span class="it-only">Scatola « Confetti »</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Boîte « Confetti »</p>
+            <p class="produit-card-name it-only">Scatola « Confetti »</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · finition éclaboussures · fait main</p>
+            <p class="produit-card-detail it-only">Gesso naturale · finitura schizzi · fatto a mano</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Boîte ronde en plâtre aux flancs côtelés, surmontée d'un bouton sphérique. Sa finition blanche est animée d'éclaboussures de peinture rose et bleu, comme des confettis fixés dans la matière. Un objet joyeux, à poser dans une chambre, un espace festif ou à offrir comme cadeau original.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Scatola rotonda in gesso con i fianchi costolati, sormontata da un pomello sferico. La sua finitura bianca è animata da schizzi di pittura rosa e blu, come coriandoli impressi nella materia. Un oggetto gioioso, da posare in una cameretta, in un ambiente festivo o da regalare come dono originale.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Objets déco -->
+    <div class="categorie">
+      <h3 class="categorie-titre fr-only">Objets décoratifs</h3>
+      <h3 class="categorie-titre it-only">Oggetti decorativi</h3>
+      <div class="produit-grid">
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/objets/oiseau-1.jpg" alt="Oiseau en plâtre – vue 1">
+                <img src="images/objets/oiseau-2.jpg" alt="Oiseau en plâtre – vue 2">
+                <img src="images/objets/oiseau-3.jpg" alt="Oiseau en plâtre – vue 3">
+                <img src="images/objets/20260427_155209.jpg" alt="Oiseau en plâtre – ambiance">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Oiseau</span>
+            <span class="it-only">Uccello</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Oiseau</p>
+            <p class="produit-card-name it-only">Uccello</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · fleurs séchées · série limitée</p>
+            <p class="produit-card-detail it-only">Gesso naturale · fiori secchi · serie limitata</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Petit oiseau en plâtre naturel, coulé à la main dans une silhouette ronde et apaisante. Des fleurs séchées sont collées sur son dos, formant un petit bouquet naturel intégré à la sculpture. Il se pose seul sur une étagère ou accompagne un plateau, une bougie, une composition végétale. Disponible seul ou avec son plateau en plâtre en forme de fleur. Chaque pièce est unique.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Piccolo uccello in gesso naturale, colato a mano in una silhouette rotonda e rassicurante. Dei fiori secchi sono incollati sul suo dorso, formando un piccolo bouquet naturale integrato nella scultura. Si posa da solo su uno scaffale o accompagna un vassoio, una candela, una composizione vegetale. Disponibile da solo o con il suo vassoio in gesso a forma di fiore. Ogni pezzo è unico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/objets/objet-deco-2.jpg" alt="Grenade – vue 1">
+                <img src="images/objets/objet-2.jpg" alt="Grenade – vue 2">
+                <img src="images/objets/objet-deco-3.jpg" alt="Grenade – vue 3">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Grenade</span>
+            <span class="it-only">Melagrana</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Grenade</p>
+            <p class="produit-card-name it-only">Melagrana</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · grains dorés · série limitée</p>
+            <p class="produit-card-detail it-only">Gesso naturale · semi dorati · serie limitata</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Sculpture en plâtre blanc représentant une grenade entrouverte, ses grains dorés à la feuille visibles à l'intérieur. Symbole méditerranéen d'abondance et de prospérité, elle apporte une touche précieuse et naturelle à n'importe quel intérieur. Pièce unique, coulée et finalisée à la main.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Scultura in gesso bianco che rappresenta una melagrana socchiusa, con i semi dorati a foglia visibili all'interno. Simbolo mediterraneo di abbondanza e prosperità, porta un tocco prezioso e naturale in qualsiasi interno. Pezzo unico, colato e rifinito a mano.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="produit-card has-carousel has-desc">
+          <div class="produit-card-img">
+            <div class="carousel" data-carousel>
+              <div class="carousel-track">
+                <img src="images/oeufs/1.webp" alt="Oeuf Fabergé">
+                <img src="images/oeufs/2.jpg" alt="Oeuf Fabergé – détail">
+                <img src="images/oeufs/3.jpg" alt="Oeuf Fabergé – coloris">
+                <img src="images/oeufs/4.jpg" alt="Oeuf Fabergé – ambiance">
+                <img src="images/oeufs/5.jpg" alt="Oeuf Fabergé – série">
+                <img src="images/oeufs/6.jpg" alt="Oeuf Fabergé – set">
+                <img src="images/oeufs/7.jpg" alt="Oeuf Fabergé – vue 7">
+              </div>
+              <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+              <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+              <div class="carousel-dots">
+                <span class="carousel-dot active"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+                <span class="carousel-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="produit-card-overlay">
+            <span class="fr-only">Oeuf Fabergé</span>
+            <span class="it-only">Uovo Fabergé</span>
+          </div>
+          <div class="produit-card-info">
+            <p class="produit-card-name fr-only">Oeuf Fabergé</p>
+            <p class="produit-card-name it-only">Uovo Fabergé</p>
+            <p class="produit-card-detail fr-only">Plâtre naturel · plusieurs coloris · série limitée</p>
+            <p class="produit-card-detail it-only">Gesso naturale · diversi colori · serie limitata</p>
+            <div class="produit-desc fr-only">
+              <button class="produit-desc-btn" type="button">Description</button>
+              <div class="produit-desc-content">
+                <p>Grand œuf en plâtre recouvert d'arabesques baroques en relief, coulées dans la même matière. Une fleur séchée trône au sommet, retenue par un ruban de raphia. Disponible en plusieurs coloris, il se pose sur un meuble comme une sculpture précieuse. Idéal en cadeau, c'est aussi la pièce signature de Sylfay : là où l'artisanat rencontre l'ornement.</p>
+              </div>
+            </div>
+            <div class="produit-desc it-only">
+              <button class="produit-desc-btn" type="button">Descrizione</button>
+              <div class="produit-desc-content">
+                <p>Grande uovo in gesso ricoperto di arabeschi barocchi in rilievo, colati nella stessa materia. Un fiore secco troneggia in cima, tenuto da un nastro di rafia. Disponibile in diversi colori, si posa su un mobile come una scultura preziosa. Ideale come regalo, è anche il pezzo firma di Sylfay: dove l'artigianato incontra l'ornamento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── BANDE ETSY ─────────────────────────────────────────────── -->
+<div class="etsy-band">
+  <div class="tag fr-only">Boutique en ligne</div>
+  <div class="tag it-only">Negozio online</div>
+  <h2 class="fr-only">Disponible sur Etsy</h2>
+  <h2 class="it-only">Disponibile su Etsy</h2>
+  <p class="fr-only">Retrouvez toutes mes créations sur ma boutique en ligne. Livraison en France et en Europe.</p>
+  <p class="it-only">Trovate tutte le mie creazioni sul mio negozio online. Spedizione in Francia e in Europa.</p>
+  <a href="https://www.etsy.com/shop/InfiligranaAtelier" target="_blank" rel="noopener" class="btn-etsy">
+    <span class="fr-only">Visiter la boutique</span>
+    <span class="it-only">Visita il negozio</span>
+  </a>
+</div>
+
+<!-- ─── À PROPOS ───────────────────────────────────────────────── -->
+<section id="apropos" class="bande">
+  <div class="bande-img">
+    <img src="images/ambiance/ambiance-4.jpg" alt="Atelier Sylfay">
+  </div>
+  <div class="bande-text">
+    <p class="tag fr-only">À propos</p>
+    <p class="tag it-only">Chi sono</p>
+    <h2 class="fr-only">Au croisement de deux cultures<br><em>et d'une mémoire du geste</em></h2>
+    <h2 class="it-only">All'incrocio di due culture<br><em>e di una memoria del gesto</em></h2>
+    <div class="fr-only">
+      <p>Sylfay est née au croisement de mes deux cultures, italienne et française, et de mon attachement profond aux territoires, aux traditions et aux savoir-faire transmis de génération en génération.</p>
+      <p>J'ai toujours été sensible aux gestes anciens, aux matières simples, aux objets façonnés à la main et à tout ce qui relie une création à une histoire, un lieu, une mémoire.</p>
+      <p>À travers Sylfay, je cherche aussi à faire résonner une forme de puissance féminine ancienne : celle des femmes qui fabriquent, transmettent, soignent, transforment et préservent. Une puissance discrète, intuitive, profondément liée à la nature et aux cycles du vivant.</p>
+      <p>Les traditions populaires, les rites anciens, les plantes, les symboles et les savoirs oubliés nourrissent ainsi mon travail, sans nostalgie ni folklore, mais comme une matière vivante à réinterpréter.</p>
+      <p>Sylfay est ma manière de renouer avec cette mémoire du geste et de lui donner une place dans nos intérieurs d'aujourd'hui.</p>
+    </div>
+    <div class="it-only">
+      <p>Sylfay è nata all'incrocio delle mie due culture, italiana e francese, e del mio profondo legame con i territori, le tradizioni e i saperi tramandati di generazione in generazione.</p>
+      <p>Ho sempre sentito il richiamo dei gesti antichi, delle materie semplici, degli oggetti lavorati a mano e di tutto ciò che lega una creazione a una storia, un luogo, una memoria.</p>
+      <p>Con Sylfay cerco anche di far risuonare una forma di potenza femminile antica : quella delle donne che fabbricano, trasmettono, curano, trasformano e preservano. Una potenza discreta, intuitiva, profondamente legata alla natura e ai cicli del vivente.</p>
+      <p>Le tradizioni popolari, i riti antichi, le piante, i simboli e i saperi dimenticati nutrono così il mio lavoro, senza nostalgia né folklore, ma come una materia viva da reinterpretare.</p>
+      <p>Sylfay è il mio modo di riallacciarmi a questa memoria del gesto e di darle un posto nei nostri spazi di oggi.</p>
+    </div>
+    <a href="#contact" class="lien fr-only">Me contacter</a>
+    <a href="#contact" class="lien it-only">Contattami</a>
+  </div>
+</section>
+
+<!-- ─── TARIFS ─────────────────────────────────────────────────── -->
+<section id="tarifs" class="tarifs">
+  <div class="tarifs-head">
+    <p class="tag fr-only">Professionnels</p>
+    <p class="tag it-only">Professionisti</p>
+    <h2 class="fr-only">Vous êtes revendeur ?</h2>
+    <h2 class="it-only">Sei un rivenditore ?</h2>
+    <p class="fr-only">Je propose une gamme de créations artisanales adaptée aux boutiques et espaces de vente souhaitant offrir des objets décoratifs naturels et originaux à leur clientèle.<br><br>Chaque pièce est fabriquée à la main, en série limitée, avec des matériaux naturels sélectionnés.<br><br>Commande minimum : 10 pièces. Dépôt-vente possible dès 5 pièces.<br>Fabrication sur commande, délai 3 à 4 semaines selon volume.</p>
+    <p class="it-only">Propongo una gamma di creazioni artigianali adatta a boutique e spazi di vendita che desiderano offrire oggetti decorativi naturali e originali alla propria clientela.<br><br>Ogni pezzo è realizzato a mano, in serie limitata, con materiali naturali selezionati.<br><br>Ordine minimo: 10 pezzi. Conto vendita possibile a partire da 5 pezzi.<br>Produzione su ordinazione, tempi di 3-4 settimane secondo il volume.</p>
+  </div>
+
+</section>
+
+<div class="tarif-band">
+  <p class="tag fr-only">Professionnels</p>
+  <p class="tag it-only">Professionisti</p>
+  <h2 class="fr-only">Vous souhaitez référencer Sylfay ?</h2>
+  <h2 class="it-only">Vuoi referenziare Sylfay ?</h2>
+  <p class="fr-only">Recevez la plaquette tarifaire revendeur directement sur WhatsApp.</p>
+  <p class="it-only">Ricevi il listino prezzi rivenditore direttamente su WhatsApp.</p>
+  <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20recevoir%20la%20plaquette%20tarifaire%20Sylfay." class="btn-tarif" target="_blank" rel="noopener">
+    <span class="fr-only">Demander la plaquette</span>
+    <span class="it-only">Richiedi il listino</span>
+  </a>
+</div>
+
+<!-- ─── CONTACT ────────────────────────────────────────────────── -->
+<section id="contact" class="contact">
+  <a href="#accueil"><img src="images/logo/sylfay-logo-principal.png" alt="Sylfay" class="hero-logo"></a>
+  <p class="tag fr-only">Contact</p>
+  <p class="tag it-only">Contatti</p>
+  <h2 class="fr-only">Une question ?<br>Un projet ?</h2>
+  <h2 class="it-only">Una domanda ?<br>Un progetto ?</h2>
+  <p class="fr-only">Pour toute commande, demande de dépôt-vente ou question sur mes créations.</p>
+  <p class="it-only">Per qualsiasi ordine, richiesta di conto vendita o domanda sulle mie creazioni.</p>
+  <div class="contact-btns">
+    <a href="https://wa.me/393513016773" target="_blank" rel="noopener" class="btn-contact">
+      <span class="fr-only">WhatsApp</span>
+      <span class="it-only">WhatsApp</span>
+    </a>
+    <a href="https://www.instagram.com/maison.sylfay" target="_blank" rel="noopener" class="btn-contact">Instagram</a>
+    <a href="https://www.etsy.com/shop/InfiligranaAtelier" target="_blank" rel="noopener" class="btn-contact">Etsy</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────── -->
+<a class="back-to-top" href="#accueil" id="backToTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</a>
+
+<footer>
+  © Sylfay by Infiligrana EI –
+  <span class="fr-only">
+    <a href="mentions-legales.html">Mentions légales</a> · <a href="cgu.html">CGU</a>
+  </span>
+  <span class="it-only">
+    <a href="mentions-legales.html">Mentions légales</a> · <a href="cgu.html">CGU</a>
+  </span>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('nav-menu').classList.toggle('open');
+  }
+
+  function closeMenu() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('nav-menu').classList.remove('open');
+  }
+
+  function toggleLang() {
+    document.body.classList.toggle('it');
+    document.documentElement.lang = document.body.classList.contains('it') ? 'it' : 'fr';
+  }
+
+  // Descriptions déroulantes
+  document.querySelectorAll('.produit-desc-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      btn.closest('.produit-desc').classList.toggle('open');
+    });
+  });
+
+  // Bouton retour en haut
+  const backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Carrousels
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const dots = carousel.querySelectorAll('.carousel-dot');
+    const total = dots.length;
+    let idx = 0;
+
+    function goTo(n) {
+      idx = (n + total) % total;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    carousel.querySelector('.carousel-prev').addEventListener('click', e => { e.stopPropagation(); goTo(idx - 1); });
+    carousel.querySelector('.carousel-next').addEventListener('click', e => { e.stopPropagation(); goTo(idx + 1); });
+    dots.forEach((dot, i) => dot.addEventListener('click', e => { e.stopPropagation(); goTo(i); }));
+
+    // Swipe tactile
+    let startX = 0;
+    carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? idx + 1 : idx - 1);
+    });
+  });
+</script>
+
+</body>
+</html>
