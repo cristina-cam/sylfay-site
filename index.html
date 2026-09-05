@@ -1951,10 +1951,30 @@
     document.getElementById('nav-menu').classList.remove('open');
   }
 
-  function toggleLang() {
-    document.body.classList.toggle('it');
-    document.documentElement.lang = document.body.classList.contains('it') ? 'it' : 'fr';
+  function setLang(lang) {
+    if (lang === 'it') {
+      document.body.classList.add('it');
+      document.documentElement.lang = 'it';
+    } else {
+      document.body.classList.remove('it');
+      document.documentElement.lang = 'fr';
+    }
+    localStorage.setItem('sylfay-lang', lang);
   }
+
+  function toggleLang() {
+    const next = document.body.classList.contains('it') ? 'fr' : 'it';
+    setLang(next);
+  }
+
+  // Langue au chargement : préférence mémorisée > langue navigateur > français par défaut
+  (function() {
+    const saved = localStorage.getItem('sylfay-lang');
+    if (saved) { setLang(saved); return; }
+    const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    if (browserLang.startsWith('it')) setLang('it');
+    else setLang('fr');
+  })();
 
   // Descriptions déroulantes
   document.querySelectorAll('.produit-desc-btn').forEach(btn => {
