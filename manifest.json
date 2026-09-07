@@ -1,0 +1,16 @@
+{
+  "name": "Sylfay",
+  "short_name": "Sylfay",
+  "description": "Alchimies naturelles – créations artisanales en plâtre",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#38af44",
+  "theme_color": "#38af44",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}
