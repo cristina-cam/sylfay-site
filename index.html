@@ -521,7 +521,7 @@
       margin-bottom: 16px;
     }
 
-    .bande-text .lien {
+    .bande-text .lien, .lien-fleche {
       margin-top: 12px;
       display: inline-flex;
       align-items: center;
@@ -532,12 +532,13 @@
       text-transform: uppercase;
       color: var(--brun);
       transition: gap .2s;
+      text-decoration: none;
     }
 
-    .bande-text .lien:hover { gap: 14px; }
+    .bande-text .lien:hover, .lien-fleche:hover { gap: 14px; }
     body:not(.it) .bande-text .lien.it-only { display: none; }
     body.it .bande-text .lien.fr-only { display: none; }
-    .bande-text .lien::after { content: '→'; }
+    .bande-text .lien::after, .lien-fleche::after { content: '→'; }
 
     /* ─── ETSY ───────────────────────────────────────────────── */
     .etsy-band {
@@ -2019,6 +2020,10 @@
     <span class="fr-only">Visiter la boutique</span>
     <span class="it-only">Visita il negozio</span>
   </a>
+  <p style="margin-top:16px; font-size:11px; color:var(--leger);" class="fr-only">Pour les articles pas en boutique,</p>
+  <p style="margin-top:4px; font-size:11px; color:var(--leger);" class="it-only">Per gli articoli non in boutique,</p>
+  <a href="#contact" class="lien-fleche fr-only" style="margin-top:4px;">Me contacter</a>
+  <a href="#contact" class="lien-fleche it-only" style="margin-top:4px;">Contattami</a>
 </div>
 
 <!-- ─── À PROPOS ───────────────────────────────────────────────── -->
