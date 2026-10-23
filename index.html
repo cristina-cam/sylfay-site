@@ -952,6 +952,13 @@
     @media (max-width: 640px) {
       #noel-banner > div { padding: 0 !important; }
       #noel-banner .noel-banner-img { aspect-ratio: 3/2 !important; }
+      .noel-overlay-text {
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        text-align: center;
+        width: 85%;
+      }
+      .noel-overlay-text img { margin-left: auto; margin-right: auto; }
     }
 
     /* ── Carrousel ────────────────────────────────────────────────── */
@@ -1126,7 +1133,7 @@
         <img src="images/noel-banniere.jpg" alt="Collection Noël Sylfay" style="width:100%; height:100%; object-fit:cover; transition:transform .6s ease;">
       </div>
       <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(0,0,0,.38) 0%, rgba(0,0,0,.1) 60%);"></div>
-      <div style="position:absolute; top:50%; left:7%; transform:translateY(-50%);">
+      <div class="noel-overlay-text" style="position:absolute; top:50%; left:7%; transform:translateY(-50%);">
         <img src="images/pictos/sapin.png" alt="" style="width:28px; filter:brightness(0) invert(1); opacity:.85; margin-bottom:10px; display:block;">
         <p style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:500; letter-spacing:.28em; text-transform:uppercase; color:rgba(255,255,255,.75); margin-bottom:10px;">Édition limitée</p>
         <h2 style="font-family:'Playfair Display',serif; font-size:clamp(24px,4vw,48px); font-weight:400; font-style:italic; color:#fff; line-height:1.15; margin-bottom:18px;">Noël</h2>
