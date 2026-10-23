@@ -29,12 +29,13 @@
     a    { text-decoration: none; color: inherit; }
 
     /* ─── BILINGUE ───────────────────────────────────────────── */
-    .it-only { display: none; }
-    body.it .fr-only { display: none; }
-    body.it .it-only { display: block; }
-    body.it span.fr-only { display: none; }
-    body.it span.it-only { display: inline; }
-    span.it-only { display: none; }
+    .it-only { display: none !important; }
+    span.it-only { display: none !important; }
+    body.it .fr-only { display: none !important; }
+    body.it span.fr-only { display: none !important; }
+    body.it .it-only { display: block !important; }
+    body.it span.it-only { display: inline !important; }
+    body.it a.it-only { display: inline-block !important; }
     .nav-lang {
       font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .12em;
       text-transform: uppercase; color: var(--leger); background: none;
