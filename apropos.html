@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Cristina · Sylfay</title>
+  <meta name="description" content="Cristina, fondatrice de Sylfay. Italienne à Paris, artisane du plâtre et des cosmétiques naturels, animée par les gestes anciens et les matières vivantes.">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <meta property="og:title" content="À propos — Cristina · Sylfay">
+  <meta property="og:description" content="Italienne à Paris, artisane du plâtre et des cosmétiques naturels, animée par les gestes anciens et les matières vivantes.">
+  <meta property="og:image" content="https://maison-sylfay.com/images/portrait-cristina.jpg">
+  <meta property="og:url" content="https://maison-sylfay.com/apropos.html">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --vert:  #38af44;
+      --brun:  #c0a994;
+      --creme: #faf8f4;
+      --gris:  #f2efea;
+      --texte: #2a2a2a;
+      --leger: #7a7067;
+      --blanc: #ffffff;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; font-weight: 400; color: var(--texte); background: var(--creme); }
+    img  { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a    { text-decoration: none; color: inherit; }
+
+    /* ─── BILINGUE ───────────────────────────────────────────── */
+    .it-only { display: none !important; }
+    span.it-only { display: none !important; }
+    body.it .fr-only { display: none !important; }
+    body.it span.fr-only { display: none !important; }
+    body.it .it-only { display: block !important; }
+    body.it span.it-only { display: inline !important; }
+    body.it a.it-only { display: inline-block !important; }
+    .nav-lang {
+      font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--leger); background: none;
+      border: 1px solid var(--leger); padding: 4px 10px; cursor: pointer; transition: all .2s;
+    }
+    .nav-lang:hover { color: var(--brun); border-color: var(--brun); }
+
+    /* ─── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(250,248,244,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(92,74,54,.1);
+    }
+    .nav-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+    .nav-logo-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--vert); letter-spacing: .02em; }
+    .nav-logo-sub  { font-size: 9px; font-weight: 400; color: var(--leger); letter-spacing: .22em; text-transform: uppercase; }
+    .nav-back {
+      font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--brun); transition: color .2s; display: flex; align-items: center; gap: 7px;
+    }
+    .nav-back:hover { color: var(--vert); }
+    .nav-back::before { content: '←'; font-size: 14px; }
+
+    /* ─── HERO PORTRAIT ─────────────────────────────────────── */
+    .hero-apropos {
+      margin-top: 65px;
+      width: 100%;
+      max-height: 520px;
+      overflow: hidden;
+    }
+    .hero-apropos img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      max-height: 520px;
+    }
+
+    /* ─── CONTENU ───────────────────────────────────────────── */
+    .apropos-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 40px 100px;
+    }
+
+    .tag {
+      font-size: 10px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--vert); margin-bottom: 20px;
+    }
+
+    .apropos-wrap h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--texte);
+      line-height: 1.25;
+      margin-bottom: 48px;
+    }
+
+    .apropos-body p {
+      font-size: 15px;
+      line-height: 1.95;
+      color: var(--leger);
+      margin-bottom: 22px;
+    }
+
+    .apropos-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── CLÔTURE ───────────────────────────────────────────── */
+    .apropos-closing {
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(92,74,54,.15);
+      text-align: center;
+    }
+    .apropos-closing p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--brun);
+      line-height: 1.5;
+    }
+
+    /* ─── CTA RETOUR ────────────────────────────────────────── */
+    .apropos-cta {
+      margin-top: 48px;
+      text-align: center;
+    }
+    .btn-apropos {
+      display: inline-block;
+      font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--blanc); background: var(--vert);
+      padding: 14px 32px;
+      transition: background .2s, transform .2s;
+    }
+    .btn-apropos:hover { background: var(--brun); transform: translateY(-1px); }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      padding: 32px 40px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--leger);
+      border-top: 1px solid rgba(92,74,54,.1);
+    }
+    footer a { color: var(--leger); }
+    footer a:hover { color: var(--brun); }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .nav-logo-name { font-size: 22px; }
+      .hero-apropos { max-height: 280px; }
+      .hero-apropos img { max-height: 280px; }
+      .apropos-wrap { padding: 48px 24px 80px; }
+      footer { padding: 24px 20px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────── -->
+<nav>
+  <a href="https://maison-sylfay.com" class="nav-logo">
+    <span class="nav-logo-name">Sylfay</span>
+    <span class="nav-logo-sub">Alchimies naturelles</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <button class="nav-lang" onclick="toggleLang()">IT / FR</button>
+    <a href="https://maison-sylfay.com" class="nav-back"><span class="fr-only">Retour à l'accueil</span><span class="it-only">Torna alla home</span></a>
+  </div>
+</nav>
+
+<!-- ─── PORTRAIT ─────────────────────────────────────────────── -->
+<div class="hero-apropos">
+  <img src="images/portrait-cristina.jpg" alt="Cristina, fondatrice de Sylfay">
+</div>
+
+<!-- ─── CONTENU ──────────────────────────────────────────────── -->
+<div class="apropos-wrap">
+
+  <p class="tag fr-only">À propos</p>
+  <p class="tag it-only">Chi sono</p>
+
+  <h1 class="fr-only">Cristina,<br><em>fondatrice de Sylfay</em></h1>
+  <h1 class="it-only">Cristina,<br><em>fondatrice di Sylfay</em></h1>
+
+  <div class="apropos-body">
+
+    <p>Ma passion pour la savonnerie artisanale m'accompagne depuis 2019.</p>
+
+    <p>Elle est née loin du bruit, dans la campagne française, entre Beauce et Perche.</p>
+
+    <p>C'est là que quelque chose s'est éveillé. Le contact avec la terre, les matières naturelles, les gestes simples, les silences et le temps qui prend son temps.</p>
+
+    <p>Italienne devenue aussi française, je porte en moi un profond attachement aux terroirs, aux traditions populaires et aux savoir-faire transmis de génération en génération.</p>
+
+    <p>Au fil des années, l'envie de transformer la matière a pris différentes formes. D'abord les savons et les soins cosmétiques, élaborés avec patience et exigence. Puis le plâtre, cette matière minérale, humble et fascinante, que je façonne en objets décoratifs inspirés par la nature.</p>
+
+    <p>Deux univers, une même intention : travailler de mes mains, explorer les matières, retrouver la beauté des gestes anciens et leur donner une place dans notre quotidien.</p>
+
+    <p>J'aime ce dialogue entre le végétal et le minéral, entre les traditions et la création, entre ce que la nature nous offre et ce que nos mains peuvent en faire.</p>
+
+    <p>Sylfay est née de cette envie : faire vivre un artisanat sincère, célébrer la beauté des choses simples et glisser un soupçon de magie dans les petits rituels du quotidien.</p>
+
+    <p>Un univers où la nature inspire, où les matières se transforment et où chaque création raconte, à sa manière, une histoire de terre, de gestes et de temps.</p>
+
+  </div>
+
+  <div class="apropos-closing">
+    <p class="fr-only">Bienvenue dans l'univers Sylfay</p>
+    <p class="it-only">Benvenuta nell'universo Sylfay</p>
+  </div>
+
+  <div class="apropos-cta">
+    <a href="https://maison-sylfay.com" class="btn-apropos fr-only">Découvrir les créations</a>
+    <a href="https://maison-sylfay.com" class="btn-apropos it-only">Scopri le creazioni</a>
+  </div>
+
+</div>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  © Sylfay by Infiligrana EI · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgu.html">CGU</a>
+</footer>
+
+<script>
+  function setLang(lang) {
+    if (lang === 'it') {
+      document.body.classList.add('it');
+      document.documentElement.lang = 'it';
+    } else {
+      document.body.classList.remove('it');
+      document.documentElement.lang = 'fr';
+    }
+    localStorage.setItem('sylfay-lang', lang);
+  }
+
+  function toggleLang() {
+    const current = document.body.classList.contains('it') ? 'it' : 'fr';
+    setLang(current === 'it' ? 'fr' : 'it');
+  }
+
+  (function() {
+    const saved = localStorage.getItem('sylfay-lang');
+    const browser = navigator.language || navigator.userLanguage || '';
+    const lang = saved || (browser.toLowerCase().startsWith('it') ? 'it' : 'fr');
+    setLang(lang);
+  })();
+</script>
+
+</body>
+</html>
