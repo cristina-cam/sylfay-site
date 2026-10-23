@@ -28,6 +28,20 @@
     img  { display: block; width: 100%; height: 100%; object-fit: cover; }
     a    { text-decoration: none; color: inherit; }
 
+    /* ─── BILINGUE ───────────────────────────────────────────── */
+    .it-only { display: none; }
+    body.it .fr-only { display: none; }
+    body.it .it-only { display: block; }
+    body.it span.fr-only { display: none; }
+    body.it span.it-only { display: inline; }
+    span.it-only { display: none; }
+    .nav-lang {
+      font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--leger); background: none;
+      border: 1px solid var(--leger); padding: 4px 10px; cursor: pointer; transition: all .2s;
+    }
+    .nav-lang:hover { color: var(--brun); border-color: var(--brun); }
+
     /* ─── NAV ──────────────────────────────────────────────── */
     nav {
       position: fixed;
@@ -263,7 +277,10 @@
     <span class="nav-logo-name">Sylfay</span>
     <span class="nav-logo-sub">Alchimies naturelles</span>
   </a>
-  <a href="https://maison-sylfay.com" class="nav-back">Retour à l'accueil</a>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <button class="nav-lang" onclick="toggleLang()">IT / FR</button>
+    <a href="https://maison-sylfay.com" class="nav-back"><span class="fr-only">Retour à l'accueil</span><span class="it-only">Torna alla home</span></a>
+  </div>
 </nav>
 
 <!-- ─── HERO ─────────────────────────────────────────────────── -->
@@ -271,15 +288,16 @@
   <img src="images/noel-banniere.jpg" alt="Collection Noël Sylfay — pommes de pin et sapins en plâtre">
   <div class="hero-noel-overlay"></div>
   <div class="hero-noel-content">
-    <p class="hero-noel-tag">Édition limitée</p>
-    <h1 class="hero-noel-title">Noël</h1>
+    <p class="hero-noel-tag"><span class="fr-only">Édition limitée</span><span class="it-only">Edizione limitata</span></p>
+    <h1 class="hero-noel-title"><span class="fr-only">Noël</span><span class="it-only">Natale</span></h1>
   </div>
 </div>
 
 <!-- ─── INTRO ─────────────────────────────────────────────────── -->
 <div class="noel-intro">
-  <p class="tag">Créations de saison</p>
-  <p>Des pièces façonnées à la main pour la période des fêtes. En série très limitée, disponibles uniquement sur commande.</p>
+  <p class="tag"><span class="fr-only">Créations de saison</span><span class="it-only">Creazioni di stagione</span></p>
+  <p class="fr-only">Des pièces façonnées à la main pour la période des fêtes. En série très limitée, disponibles uniquement sur commande.</p>
+  <p class="it-only">Pezzi realizzati a mano per le feste. In serie molto limitata, disponibili solo su ordinazione.</p>
 </div>
 
 <!-- ─── ENSEMBLE HERO ─────────────────────────────────────────── -->
@@ -288,11 +306,13 @@
     <img src="images/objets/ensemble-noel.jpg" alt="Ensemble Noël Sylfay — sapins et pommes de pin en plâtre">
   </div>
   <div class="noel-ensemble-text">
-    <span class="tag">Édition limitée · Noël</span>
+    <span class="tag"><span class="fr-only">Édition limitée · Noël</span><span class="it-only">Edizione limitata · Natale</span></span>
     <h2>L'Alchimie du Solstice</h2>
     <span class="ensemble-price">75 €</span>
-    <p class="ensemble-desc">Sapins « Semperviva » et pommes de pin « Strenia » réunis sur leur plateau en plâtre naturel. L'ensemble comprend 3 sapins, 3 pommes de pin et 1 plateau. Une composition de fête à offrir ou à poser chez soi. Disponible en plusieurs coloris, sur commande uniquement. Chaque pièce est coulée et finalisée à la main.</p>
-    <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20l%27ensemble%20de%20No%C3%ABl%20Sylfay%20(sapins%20%2B%20pommes%20de%20pin%20%2B%20plateau)." class="btn-noel btn-noel-wa" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+    <p class="ensemble-desc fr-only">Sapins « Semperviva » et pommes de pin « Strenia » réunis sur leur plateau en plâtre naturel. L'ensemble comprend 3 sapins, 3 pommes de pin et 1 plateau. Une composition de fête à offrir ou à poser chez soi. Disponible en plusieurs coloris, sur commande uniquement. Chaque pièce est coulée et finalisée à la main.</p>
+    <p class="ensemble-desc it-only">Abeti « Semperviva » e pigne « Strenia » riuniti sul loro vassoio in gesso naturale. L'insieme comprende 3 abeti, 3 pigne e 1 vassoio. Una composizione di festa da regalare o da posare in casa. Disponibile in più colorazioni, su ordinazione. Ogni pezzo è colato e rifinito a mano.</p>
+    <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20l%27ensemble%20de%20No%C3%ABl%20Sylfay%20(sapins%20%2B%20pommes%20de%20pin%20%2B%20plateau)." class="btn-noel btn-noel-wa fr-only" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+    <a href="https://wa.me/393513016773?text=Buongiorno%2C%20vorrei%20ordinare%20l%27insieme%20Natale%20Sylfay%20(abeti%20%2B%20pigne%20%2B%20vassoio)." class="btn-noel btn-noel-wa it-only" target="_blank" rel="noopener">Ordina su WhatsApp</a>
   </div>
 </div>
 
@@ -326,14 +346,18 @@
         </div>
       </div>
       <div class="produit-card-info">
-        <p class="produit-card-name">Pomme de pin « Strenia » porte-bonheur</p>
+        <p class="produit-card-name fr-only">Pomme de pin « Strenia » porte-bonheur</p>
+        <p class="produit-card-name it-only">Pigna « Strenia » portafortuna</p>
         <p class="produit-card-price">14 €</p>
-        <p class="produit-card-detail">Plâtre naturel · plusieurs coloris · série limitée</p>
+        <p class="produit-card-detail fr-only">Plâtre naturel · plusieurs coloris · série limitée</p>
+        <p class="produit-card-detail it-only">Gesso naturale · più colorazioni · serie limitata</p>
         <div class="produit-desc">
-          <button class="produit-desc-btn" type="button">Description</button>
+          <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
           <div class="produit-desc-content">
-            <p>Pomme de pin en plâtre teinté, coulée et finalisée à la main. La strenia est le cadeau porte-bonheur de la tradition romaine : une petite chose précieuse qu'on offre en début d'année pour attirer la chance. Nos étrennes portent encore son nom. Posée sur un rebord de fenêtre, une étagère ou une table de nuit, elle s'installe discrètement et dure. Disponible en plusieurs coloris. <strong>Hauteur 6 cm.</strong></p>
-            <p><strong>Ensemble 3 pommes de pin + plateau : 42 €</strong></p>
+            <p class="fr-only">Pomme de pin en plâtre teinté, coulée et finalisée à la main. La strenia est le cadeau porte-bonheur de la tradition romaine : une petite chose précieuse qu'on offre en début d'année pour attirer la chance. Nos étrennes portent encore son nom. Posée sur un rebord de fenêtre, une étagère ou une table de nuit, elle s'installe discrètement et dure. Disponible en plusieurs coloris. <strong>Hauteur 6 cm.</strong></p>
+            <p class="fr-only"><strong>Ensemble 3 pommes de pin + plateau : 42 €</strong></p>
+            <p class="it-only">Pigna in gesso tinto, colata e rifinita a mano. La strenia è il regalo portafortuna della tradizione romana : un piccolo dono prezioso da offrire a inizio anno per attirare la fortuna. Posata su un davanzale, una mensola o un comodino, si sistema discretamente e dura nel tempo. Disponibile in più colorazioni. <strong>Altezza 6 cm.</strong></p>
+            <p class="it-only"><strong>Insieme 3 pigne + vassoio : 42 €</strong></p>
           </div>
         </div>
       </div>
@@ -365,12 +389,15 @@
       <div class="produit-card-info">
         <p class="produit-card-name">Sapin « Semperviva »</p>
         <p class="produit-card-price">15 €</p>
-        <p class="produit-card-detail">Plâtre naturel · blanc naturel, vert olive, rouge/blanc</p>
+        <p class="produit-card-detail fr-only">Plâtre naturel · blanc naturel, vert olive, rouge/blanc</p>
+        <p class="produit-card-detail it-only">Gesso naturale · bianco naturale, verde oliva, rosso/bianco</p>
         <div class="produit-desc">
-          <button class="produit-desc-btn" type="button">Description</button>
+          <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
           <div class="produit-desc-content">
-            <p>Sapin en plâtre teinté, coulé et finalisé à la main. Trois coloris disponibles : blanc naturel, vert olive, rouge et blanc. À poser sur une étagère, un rebord de fenêtre ou une table de fête. Chaque pièce est unique. <strong>Hauteur 16 cm.</strong></p>
-            <p><strong>Ensemble 3 sapins + plateau : 42 €</strong></p>
+            <p class="fr-only">Sapin en plâtre teinté, coulé et finalisé à la main. Trois coloris disponibles : blanc naturel, vert olive, rouge et blanc. À poser sur une étagère, un rebord de fenêtre ou une table de fête. Chaque pièce est unique. <strong>Hauteur 16 cm.</strong></p>
+            <p class="fr-only"><strong>Ensemble 3 sapins + plateau : 42 €</strong></p>
+            <p class="it-only">Abete in gesso tinto, colato e rifinito a mano. Tre colorazioni disponibili : bianco naturale, verde oliva, rosso e bianco. Da posare su una mensola, un davanzale o una tavola di festa. Ogni pezzo è unico. <strong>Altezza 16 cm.</strong></p>
+            <p class="it-only"><strong>Insieme 3 abeti + vassoio : 42 €</strong></p>
           </div>
         </div>
       </div>
@@ -398,13 +425,16 @@
         </div>
       </div>
       <div class="produit-card-info">
-        <p class="produit-card-name">Médaillon « Ailes d'ange »</p>
+        <p class="produit-card-name fr-only">Médaillon « Ailes d'ange »</p>
+        <p class="produit-card-name it-only">Medaglione « Ali d'angelo »</p>
         <p class="produit-card-price">8 €</p>
-        <p class="produit-card-detail">Plâtre naturel · ruban satin noir</p>
+        <p class="produit-card-detail fr-only">Plâtre naturel · ruban satin noir</p>
+        <p class="produit-card-detail it-only">Gesso naturale · nastro raso nero</p>
         <div class="produit-desc">
-          <button class="produit-desc-btn" type="button">Description</button>
+          <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
           <div class="produit-desc-content">
-            <p>Un diffuseur de parfum en forme d'ailes d'ange, coulé à la main en plâtre naturel. Il suffit de déposer quelques gouttes d'huile essentielle ou de parfum sur l'arrière : le plâtre absorbe et diffuse la senteur pendant plusieurs jours, sans chaleur ni électricité. À suspendre dans une armoire, un dressing, une valise ou un tiroir, ou simplement à poser comme une pièce décorative. S'accroche aussi au sapin de Noël en décoration parfumée. Ruban de satin noir inclus. Chaque médaillon est unique. <strong>Hauteur 3,5 cm, largeur 9,5 cm, épaisseur 0,5 cm.</strong></p>
+            <p class="fr-only">Un diffuseur de parfum en forme d'ailes d'ange, coulé à la main en plâtre naturel. Il suffit de déposer quelques gouttes d'huile essentielle ou de parfum sur l'arrière : le plâtre absorbe et diffuse la senteur pendant plusieurs jours, sans chaleur ni électricité. À suspendre dans une armoire, un dressing, une valise ou un tiroir, ou simplement à poser comme une pièce décorative. S'accroche aussi au sapin de Noël en décoration parfumée. Ruban de satin noir inclus. Chaque médaillon est unique. <strong>Hauteur 3,5 cm, largeur 9,5 cm, épaisseur 0,5 cm.</strong></p>
+            <p class="it-only">Un diffusore di profumo a forma di ali d'angelo, colato a mano in gesso naturale. Basta versare qualche goccia di olio essenziale o di profumo sul retro : il gesso assorbe e diffonde la fragranza per diversi giorni, senza calore né elettricità. Da appendere in un armadio, uno spogliatoio, una valigia o un cassetto, o semplicemente da posare come oggetto decorativo. Si può appendere anche all'albero di Natale come decorazione profumata. Nastro di raso nero incluso. Ogni medaglione è unico. <strong>Altezza 3,5 cm, larghezza 9,5 cm, spessore 0,5 cm.</strong></p>
           </div>
         </div>
       </div>
@@ -415,12 +445,15 @@
 
 <!-- ─── COMMANDE ──────────────────────────────────────────────── -->
 <div class="noel-commande">
-  <p class="tag">Commander</p>
-  <h2>Disponible sur commande</h2>
-  <p>Précisez le coloris souhaité et la quantité. Délai de fabrication : 1 à 2 semaines. Livraison en France et en Europe, ou retrait à Paris.</p>
+  <p class="tag"><span class="fr-only">Commander</span><span class="it-only">Ordinare</span></p>
+  <h2><span class="fr-only">Disponible sur commande</span><span class="it-only">Disponibile su ordinazione</span></h2>
+  <p class="fr-only">Précisez le coloris souhaité et la quantité. Délai de fabrication : 1 à 2 semaines. Livraison en France et en Europe, ou retrait à Paris.</p>
+  <p class="it-only">Indicate il coloris desiderato e la quantità. Tempi di realizzazione : 1-2 settimane. Spedizione in Francia e in Europa, o ritiro a Parigi.</p>
   <div class="noel-btns">
-    <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20une%20pomme%20de%20pin%20%C2%AB%20Strenia%20%C2%BB%20Sylfay." class="btn-noel btn-noel-wa" target="_blank" rel="noopener">Commander sur WhatsApp</a>
-    <a href="https://www.instagram.com/maison.sylfay" class="btn-noel btn-noel-ig" target="_blank" rel="noopener">Message sur Instagram</a>
+    <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20une%20pomme%20de%20pin%20%C2%AB%20Strenia%20%C2%BB%20Sylfay." class="btn-noel btn-noel-wa fr-only" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+    <a href="https://wa.me/393513016773?text=Buongiorno%2C%20vorrei%20ordinare%20un%20articolo%20natalizio%20Sylfay." class="btn-noel btn-noel-wa it-only" target="_blank" rel="noopener">Ordina su WhatsApp</a>
+    <a href="https://www.instagram.com/maison.sylfay" class="btn-noel btn-noel-ig fr-only" target="_blank" rel="noopener">Message sur Instagram</a>
+    <a href="https://www.instagram.com/maison.sylfay" class="btn-noel btn-noel-ig it-only" target="_blank" rel="noopener">Messaggio su Instagram</a>
   </div>
 </div>
 
@@ -430,6 +463,28 @@
 </footer>
 
 <script>
+  function setLang(lang) {
+    if (lang === 'it') {
+      document.body.classList.add('it');
+      document.documentElement.lang = 'it';
+    } else {
+      document.body.classList.remove('it');
+      document.documentElement.lang = 'fr';
+    }
+    localStorage.setItem('sylfay-lang', lang);
+  }
+  function toggleLang() {
+    const next = document.body.classList.contains('it') ? 'fr' : 'it';
+    setLang(next);
+  }
+  (function() {
+    const saved = localStorage.getItem('sylfay-lang');
+    if (saved) { setLang(saved); return; }
+    const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    if (browserLang.startsWith('it')) setLang('it');
+    else setLang('fr');
+  })();
+
   document.querySelectorAll('.produit-desc-btn').forEach(btn => {
     btn.addEventListener('click', e => {
       e.stopPropagation();
