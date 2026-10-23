@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noël — Édition limitée · Sylfay</title>
+  <meta name="description" content="Créations Sylfay pour Noël : pommes de pin porte-bonheur « Strenia » en plâtre naturel, plusieurs coloris. Commande via WhatsApp ou Instagram.">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --vert:  #38af44;
+      --brun:  #c0a994;
+      --creme: #faf8f4;
+      --gris:  #f2efea;
+      --texte: #2a2a2a;
+      --leger: #7a7067;
+      --blanc: #ffffff;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; font-weight: 400; color: var(--texte); background: var(--creme); }
+    img  { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a    { text-decoration: none; color: inherit; }
+
+    /* ─── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(250,248,244,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(92,74,54,.1);
+    }
+    .nav-logo { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+    .nav-logo-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--vert); letter-spacing: .02em; }
+    .nav-logo-sub  { font-size: 9px; font-weight: 400; color: var(--leger); letter-spacing: .22em; text-transform: uppercase; }
+    .nav-back {
+      font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--brun); transition: color .2s; display: flex; align-items: center; gap: 7px;
+    }
+    .nav-back:hover { color: var(--vert); }
+    .nav-back::before { content: '←'; font-size: 14px; }
+
+    /* ─── HERO BANNIÈRE ─────────────────────────────────────── */
+    .hero-noel {
+      position: relative;
+      height: 70vh;
+      min-height: 420px;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    .hero-noel img { object-position: center 40%; }
+    .hero-noel-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.08) 0%, rgba(0,0,0,.42) 100%);
+    }
+    .hero-noel-content {
+      position: absolute;
+      bottom: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 100%;
+      padding: 0 24px;
+    }
+    .hero-noel-tag {
+      font-size: 10px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase;
+      color: rgba(255,255,255,.75); margin-bottom: 14px;
+    }
+    .hero-noel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 64px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--blanc);
+      line-height: 1.15;
+      text-shadow: 0 2px 20px rgba(0,0,0,.3);
+    }
+
+    /* ─── INTRO ─────────────────────────────────────────────── */
+    .noel-intro {
+      max-width: 640px;
+      margin: 80px auto;
+      padding: 0 32px;
+      text-align: center;
+    }
+    .noel-intro .tag {
+      font-size: 10px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--vert); margin-bottom: 20px;
+    }
+    .noel-intro p {
+      font-size: 15px; line-height: 1.9; color: var(--leger);
+    }
+
+    /* ─── PRODUITS ──────────────────────────────────────────── */
+    .noel-produits {
+      max-width: 1100px;
+      margin: 0 auto 100px;
+      padding: 0 40px;
+    }
+    .produit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .produit-card { position: relative; overflow: visible; cursor: default; }
+    .produit-card-img { aspect-ratio: 3/4; overflow: hidden; }
+    .produit-card-info { padding: 14px 0 0; }
+    .produit-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; font-weight: 400; color: var(--brun); margin-bottom: 4px;
+    }
+    .produit-card-price {
+      font-size: 14px; font-weight: 500; color: var(--texte); margin: 5px 0 3px;
+    }
+    .produit-card-detail {
+      font-size: 11px; color: var(--leger); letter-spacing: .06em;
+    }
+    .produit-desc { margin-top: 10px; border-top: 1px solid rgba(192,169,148,.25); padding-top: 8px; }
+    .produit-desc-btn {
+      background: none; border: none; padding: 0;
+      font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--leger);
+      cursor: pointer; display: flex; align-items: center; gap: 5px;
+    }
+    .produit-desc-btn::before { content: '﹢'; font-size: 13px; }
+    .produit-desc.open .produit-desc-btn::before { content: '﹣'; }
+    .produit-desc-content { display: none; margin-top: 10px; }
+    .produit-desc.open .produit-desc-content { display: block; }
+    .produit-desc p { font-size: 12px; line-height: 1.75; color: var(--leger); margin-top: 10px; }
+
+    /* ─── CAROUSEL ──────────────────────────────────────────── */
+    .has-carousel .produit-card-img img { transition: none; }
+    .carousel { position: relative; width: 100%; height: 100%; overflow: hidden; }
+    .carousel-track { display: flex; height: 100%; transition: transform .45s cubic-bezier(.25,.46,.45,.94); }
+    .carousel-track img { flex-shrink: 0; width: 100%; height: 100%; object-fit: cover; }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.75); border: none; width: 28px; height: 28px;
+      border-radius: 50%; font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--texte); padding: 0; transition: background .2s; z-index: 10;
+    }
+    .carousel-btn:hover { background: rgba(255,255,255,.95); }
+    .carousel-prev { left: 8px; }
+    .carousel-next { right: 8px; }
+    .carousel-dots { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; z-index: 10; }
+    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.5); cursor: pointer; transition: background .2s; }
+    .carousel-dot.active { background: #fff; }
+
+    /* ─── COMMANDE ──────────────────────────────────────────── */
+    .noel-commande {
+      background: var(--gris);
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .noel-commande .tag {
+      font-size: 10px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--leger); margin-bottom: 20px;
+    }
+    .noel-commande h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 40px); font-weight: 400; font-style: italic;
+      color: var(--brun); margin-bottom: 16px;
+    }
+    .noel-commande p {
+      font-size: 14px; line-height: 1.9; color: var(--leger);
+      max-width: 520px; margin: 0 auto 36px;
+    }
+    .noel-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-noel {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: .18em; text-transform: uppercase;
+      padding: 15px 38px; transition: all .25s;
+    }
+    .btn-noel-wa  { background: var(--brun); color: var(--blanc); }
+    .btn-noel-wa:hover { background: #a8917e; }
+    .btn-noel-ig  { border: 1px solid var(--brun); color: var(--brun); }
+    .btn-noel-ig:hover { background: var(--brun); color: var(--blanc); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      text-align: center; padding: 32px; font-size: 11px; color: var(--leger);
+      border-top: 1px solid rgba(92,74,54,.1);
+    }
+    footer a { color: var(--leger); text-decoration: underline; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .noel-produits { padding: 0 20px; }
+      .produit-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero-noel { height: 56vh; }
+      .produit-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+      .noel-commande { padding: 60px 20px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────── -->
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="nav-logo-name">Sylfay</span>
+    <span class="nav-logo-sub">Alchimies naturelles</span>
+  </a>
+  <a href="/" class="nav-back">Retour au site</a>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────────── -->
+<div class="hero-noel">
+  <img src="images/noel-banniere.jpg" alt="Collection Noël Sylfay — pommes de pin et sapins en plâtre">
+  <div class="hero-noel-overlay"></div>
+  <div class="hero-noel-content">
+    <p class="hero-noel-tag">Édition limitée</p>
+    <h1 class="hero-noel-title">Noël</h1>
+  </div>
+</div>
+
+<!-- ─── INTRO ─────────────────────────────────────────────────── -->
+<div class="noel-intro">
+  <p class="tag">Créations de saison</p>
+  <p>Des pièces façonnées à la main pour la période des fêtes. En série très limitée, disponibles uniquement sur commande.</p>
+</div>
+
+<!-- ─── PRODUITS ─────────────────────────────────────────────── -->
+<section class="noel-produits">
+  <div class="produit-grid">
+
+    <div class="produit-card has-carousel has-desc">
+      <div class="produit-card-img">
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <img src="images/objets/pomme-de-pin-6.jpg" alt="Pomme de pin « Strenia » – vue d'ensemble">
+            <img src="images/objets/pomme-de-pin-1.jpg" alt="Pomme de pin « Strenia » – coloris gris-bleu">
+            <img src="images/objets/pomme-de-pin-2.jpg" alt="Pomme de pin « Strenia » – ensemble vue 1">
+            <img src="images/objets/pomme-de-pin-3.jpg" alt="Pomme de pin « Strenia » – ensemble vue 2">
+            <img src="images/objets/pomme-de-pin-7.jpg" alt="Pomme de pin « Strenia » – coloris blanc">
+            <img src="images/objets/pomme-de-pin-4.jpg" alt="Pomme de pin « Strenia » – coloris rouge">
+            <img src="images/objets/pomme-de-pin-8.jpg" alt="Pomme de pin « Strenia » – fenêtre avec échelle">
+            <img src="images/objets/pomme-de-pin-5.jpg" alt="Pomme de pin « Strenia » – vue 5">
+          </div>
+          <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+          <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+          <div class="carousel-dots">
+            <span class="carousel-dot active"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+          </div>
+        </div>
+      </div>
+      <div class="produit-card-info">
+        <p class="produit-card-name">Pomme de pin « Strenia » porte-bonheur</p>
+        <p class="produit-card-price">14 €</p>
+        <p class="produit-card-detail">Plâtre naturel · plusieurs coloris · série limitée</p>
+        <div class="produit-desc">
+          <button class="produit-desc-btn" type="button">Description</button>
+          <div class="produit-desc-content">
+            <p>Pomme de pin en plâtre teinté, coulée et finalisée à la main. La strenia est le cadeau porte-bonheur de la tradition romaine : une petite chose précieuse qu'on offre en début d'année pour attirer la chance. Nos étrennes portent encore son nom. Posée sur un rebord de fenêtre, une étagère ou une table de nuit, elle s'installe discrètement et dure. Disponible en plusieurs coloris. <strong>Hauteur 6 cm.</strong></p>
+            <p><strong>Ensemble 3 pommes de pin + plateau : 42 €</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── COMMANDE ──────────────────────────────────────────────── -->
+<div class="noel-commande">
+  <p class="tag">Commander</p>
+  <h2>Disponible sur commande</h2>
+  <p>Précisez le coloris souhaité et la quantité. Délai de fabrication : 1 à 2 semaines. Livraison en France et en Europe, ou retrait à Paris.</p>
+  <div class="noel-btns">
+    <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20une%20pomme%20de%20pin%20%C2%AB%20Strenia%20%C2%BB%20Sylfay." class="btn-noel btn-noel-wa" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+    <a href="https://www.instagram.com/maison.sylfay" class="btn-noel btn-noel-ig" target="_blank" rel="noopener">Message sur Instagram</a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  © Sylfay by Infiligrana EI · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgu.html">CGU</a>
+</footer>
+
+<script>
+  document.querySelectorAll('.produit-desc-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      btn.closest('.produit-desc').classList.toggle('open');
+    });
+  });
+
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const dots  = carousel.querySelectorAll('.carousel-dot');
+    const total = dots.length;
+    let idx = 0, startX = 0;
+    function goTo(n) {
+      idx = (n + total) % total;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+    carousel.querySelector('.carousel-prev').addEventListener('click', e => { e.stopPropagation(); goTo(idx - 1); });
+    carousel.querySelector('.carousel-next').addEventListener('click', e => { e.stopPropagation(); goTo(idx + 1); });
+    dots.forEach((dot, i) => dot.addEventListener('click', e => { e.stopPropagation(); goTo(i); }));
+    carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) goTo(dx < 0 ? idx + 1 : idx - 1);
+    });
+  });
+</script>
+</body>
+</html>
