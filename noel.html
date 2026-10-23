@@ -190,6 +190,44 @@
     .btn-noel-ig  { border: 1px solid var(--brun); color: var(--brun); }
     .btn-noel-ig:hover { background: var(--brun); color: var(--blanc); }
 
+    /* ─── ENSEMBLE HERO ──────────────────────────────────────── */
+    .noel-ensemble {
+      max-width: 1200px;
+      margin: 0 auto 72px;
+      padding: 0 40px;
+      display: flex;
+      gap: 56px;
+      align-items: center;
+    }
+    .noel-ensemble-img {
+      flex: 0 0 55%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .noel-ensemble-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .noel-ensemble-img:hover img { transform: scale(1.03); }
+    .noel-ensemble-text { flex: 1; }
+    .noel-ensemble-text .tag {
+      font-size: 10px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--leger); margin-bottom: 18px; display: block;
+    }
+    .noel-ensemble-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 42px); font-weight: 400; font-style: italic;
+      color: var(--texte); margin-bottom: 10px; line-height: 1.2;
+    }
+    .noel-ensemble-text .ensemble-price {
+      font-size: 22px; font-weight: 300; color: var(--brun);
+      letter-spacing: .05em; margin-bottom: 24px; display: block;
+    }
+    .noel-ensemble-text .ensemble-desc {
+      font-size: 13px; line-height: 1.9; color: var(--leger);
+      margin-bottom: 36px;
+    }
+
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
       text-align: center; padding: 32px; font-size: 11px; color: var(--leger);
@@ -200,8 +238,13 @@
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 14px 20px; }
+      .noel-ensemble { padding: 0 20px; gap: 32px; }
       .noel-produits { padding: 0 20px; }
       .produit-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .noel-ensemble { flex-direction: column; gap: 24px; }
+      .noel-ensemble-img { flex: 0 0 auto; width: 100%; }
     }
     @media (max-width: 600px) {
       .hero-noel { height: 56vh; }
@@ -236,6 +279,20 @@
 <div class="noel-intro">
   <p class="tag">Créations de saison</p>
   <p>Des pièces façonnées à la main pour la période des fêtes. En série très limitée, disponibles uniquement sur commande.</p>
+</div>
+
+<!-- ─── ENSEMBLE HERO ─────────────────────────────────────────── -->
+<div class="noel-ensemble">
+  <div class="noel-ensemble-img">
+    <img src="images/objets/ensemble-noel.jpg" alt="Ensemble Noël Sylfay — sapins et pommes de pin en plâtre">
+  </div>
+  <div class="noel-ensemble-text">
+    <span class="tag">Édition limitée · Noël</span>
+    <h2>L'ensemble de saison</h2>
+    <span class="ensemble-price">75 €</span>
+    <p class="ensemble-desc">Sapins « Semperviva » et pommes de pin « Strenia » réunis sur leur plateau en plâtre naturel. Une composition de fête à offrir ou à poser chez soi. Disponible en plusieurs coloris, sur commande uniquement. Chaque pièce est coulée et finalisée à la main.</p>
+    <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20l%27ensemble%20de%20No%C3%ABl%20Sylfay%20(sapins%20%2B%20pommes%20de%20pin%20%2B%20plateau)." class="btn-noel btn-noel-wa" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+  </div>
 </div>
 
 <!-- ─── PRODUITS ─────────────────────────────────────────────── -->
