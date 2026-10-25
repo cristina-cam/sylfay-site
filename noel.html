@@ -277,75 +277,78 @@
 
     /* ─── FRIMAS FEATURED ────────────────────────────────────── */
     .frimas-featured {
-      padding: 64px 40px 48px;
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 1100px;
+      margin: 60px auto 100px;
+      padding: 0 40px;
     }
     .frimas-featured-top {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: start;
-      margin-bottom: 20px;
+      gap: 48px;
+      align-items: stretch;
     }
     .frimas-featured-img {
-      width: 100%;
-      aspect-ratio: 3/4;
       overflow: hidden;
     }
     .frimas-featured-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+    }
+    .frimas-featured-right {
+      display: flex;
+      flex-direction: column;
     }
     .frimas-featured-info {
-      padding-top: 16px;
+      padding-top: 4px;
     }
     .frimas-featured-info .produit-card-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 3vw, 36px);
-      font-weight: 400;
-      font-style: italic;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 700;
+      font-style: normal;
       color: var(--texte);
-      margin-bottom: 16px;
+      margin-bottom: 4px;
+    }
+    .frimas-featured-info .produit-card-detail {
+      font-size: 11px;
+      color: var(--leger);
+      letter-spacing: .06em;
+      margin-bottom: 18px;
     }
     .frimas-featured-info .produit-card-price {
       font-size: 14px;
       font-weight: 500;
       color: var(--texte);
-      margin-bottom: 8px;
-      letter-spacing: .04em;
-    }
-    .frimas-featured-info .produit-card-detail {
-      font-size: 11px;
-      color: var(--leger);
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
     .frimas-featured-desc {
-      font-size: 15px;
-      line-height: 1.9;
+      font-size: 13px;
+      line-height: 1.85;
       color: var(--leger);
+      margin-bottom: 0;
     }
     .frimas-featured-gallery {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 24px;
     }
     .frimas-featured-gallery img {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
+      display: block;
     }
     @media (max-width: 900px) {
-      .frimas-featured-top { grid-template-columns: 1fr; gap: 32px; }
-      .frimas-featured-img { aspect-ratio: 4/3; }
-      .frimas-featured-gallery { grid-template-columns: repeat(2, 1fr); }
+      .frimas-featured-top { grid-template-columns: 1fr; gap: 24px; }
+      .frimas-featured-gallery { grid-template-columns: repeat(4, 1fr); padding-top: 16px; }
     }
     @media (max-width: 600px) {
-      .frimas-featured { padding: 40px 20px 32px; }
-      .frimas-featured-gallery { gap: 8px; }
+      .frimas-featured { padding: 0 20px; margin-bottom: 60px; }
+      .frimas-featured-gallery { grid-template-columns: repeat(2, 1fr); gap: 6px; }
     }
 
   </style>
@@ -395,31 +398,6 @@
     <p class="ensemble-desc it-only">Abeti « Semperviva » e pigne « Strenia » riuniti sul loro vassoio in gesso naturale. L'insieme comprende 3 abeti, 3 pigne e 1 vassoio. Una composizione di festa da regalare o da posare in casa. Disponibile in più colorazioni, su ordinazione. Ogni pezzo è colato e rifinito a mano.</p>
     <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20l%27ensemble%20de%20No%C3%ABl%20Sylfay%20(sapins%20%2B%20pommes%20de%20pin%20%2B%20plateau)." class="btn-noel btn-noel-wa fr-only" target="_blank" rel="noopener">Commander sur WhatsApp</a>
     <a href="https://wa.me/393513016773?text=Buongiorno%2C%20vorrei%20ordinare%20l%27insieme%20Natale%20Sylfay%20(abeti%20%2B%20pigne%20%2B%20vassoio)." class="btn-noel btn-noel-wa it-only" target="_blank" rel="noopener">Ordina su WhatsApp</a>
-  </div>
-</div>
-
-<!-- ─── FRIMAS FEATURED ───────────────────────────────────────── -->
-<div class="frimas-featured">
-  <div class="frimas-featured-top">
-    <div class="frimas-featured-img">
-      <img src="images/objets/sapin-frimas-1.jpg" alt="Sapin « Frimas » – ambiance baies rouges">
-    </div>
-    <div class="frimas-featured-info">
-      <p class="produit-card-name fr-only">Sapin « Frimas »</p>
-      <p class="produit-card-name it-only">Abete « Frimas »</p>
-      <p class="produit-card-price fr-only">Petit 16 € · Grand 24 € · Ensemble × 2 même coloris · 35 €</p>
-      <p class="produit-card-price it-only">Piccolo 16 € · Grande 24 € · Insieme × 2 stesso colore · 35 €</p>
-      <p class="produit-card-detail fr-only">Plâtre naturel · blanc naturel, gris-vert</p>
-      <p class="produit-card-detail it-only">Gesso naturale · bianco naturale, grigio-verde</p>
-      <p class="frimas-featured-desc fr-only">Le frimas est ce givre fin et cristallisé qui recouvre les branches par les matins d'hiver, avant que le soleil ne le fasse disparaître. Ce sapin en plâtre naturel en porte l'esprit : des côtes rayonnantes qui partent du sommet et descendent en spirale, une surface minérale et mate, une géométrie pure qui évoque la structure même du cristal de glace. À poser seul ou en duo, en blanc naturel ou en gris-vert. Chaque pièce est coulée et finalisée à la main. <strong>Petit : hauteur 9 cm, base 7 cm. Grand : hauteur 11 cm, base 9 cm.</strong></p>
-      <p class="frimas-featured-desc it-only">Il frimas è quella brina fine e cristallizzata che ricopre i rami nelle mattine d'inverno, prima che il sole la faccia sparire. Questo abete in gesso naturale ne porta lo spirito : costole raggianti che partono dalla cima e scendono a spirale, una superficie minerale e opaca, una geometria pura che evoca la struttura del cristallo di ghiaccio. Da posare da solo o in coppia, in bianco naturale o in grigio-verde. Ogni pezzo è colato e rifinito a mano. <strong>Piccolo : altezza 9 cm, base 7 cm. Grande : altezza 11 cm, base 9 cm.</strong></p>
-    </div>
-  </div>
-  <div class="frimas-featured-gallery">
-    <img src="images/objets/sapin-frimas-2.jpg" alt="Sapin « Frimas » – blanc naturel, duo">
-    <img src="images/objets/sapin-frimas-3.jpg" alt="Sapin « Frimas » – blanc naturel">
-    <img src="images/objets/sapin-frimas-4.jpg" alt="Sapin « Frimas » – gris-vert">
-    <img src="images/objets/sapin-frimas-5.jpg" alt="Sapin « Frimas » – gris-vert, duo">
   </div>
 </div>
 
@@ -551,6 +529,33 @@
 
   </div>
 </section>
+
+<!-- ─── FRIMAS FEATURED ───────────────────────────────────────── -->
+<div class="frimas-featured">
+  <div class="frimas-featured-top">
+    <div class="frimas-featured-img">
+      <img src="images/objets/sapin-frimas-1.jpg" alt="Sapin « Frimas » – ambiance baies rouges">
+    </div>
+    <div class="frimas-featured-right">
+      <div class="frimas-featured-info">
+        <p class="produit-card-name fr-only">Sapin « Frimas »</p>
+        <p class="produit-card-name it-only">Abete « Frimas »</p>
+        <p class="produit-card-price fr-only">Petit 16 € · Grand 24 € · Ensemble × 2 même coloris · 35 €</p>
+        <p class="produit-card-price it-only">Piccolo 16 € · Grande 24 € · Insieme × 2 stesso colore · 35 €</p>
+        <p class="produit-card-detail fr-only">Plâtre naturel · blanc naturel, gris-vert</p>
+        <p class="produit-card-detail it-only">Gesso naturale · bianco naturale, grigio-verde</p>
+        <p class="frimas-featured-desc fr-only">Le frimas est ce givre fin et cristallisé qui recouvre les branches par les matins d'hiver, avant que le soleil ne le fasse disparaître. Ce sapin en plâtre naturel en porte l'esprit : des côtes rayonnantes qui partent du sommet et descendent en spirale, une surface minérale et mate, une géométrie pure qui évoque la structure même du cristal de glace. À poser seul ou en duo, en blanc naturel ou en gris-vert. Chaque pièce est coulée et finalisée à la main. <strong>Petit : hauteur 9 cm, base 7 cm. Grand : hauteur 11 cm, base 9 cm.</strong></p>
+        <p class="frimas-featured-desc it-only">Il frimas è quella brina fine e cristallizzata che ricopre i rami nelle mattine d'inverno, prima che il sole la faccia sparire. Questo abete in gesso naturale ne porta lo spirito : costole raggianti che partono dalla cima e scendono a spirale, una superficie minerale e opaca, una geometria pura che evoca la struttura del cristallo di ghiaccio. Da posare da solo o in coppia, in bianco naturale o in grigio-verde. Ogni pezzo è colato e rifinito a mano. <strong>Piccolo : altezza 9 cm, base 7 cm. Grande : altezza 11 cm, base 9 cm.</strong></p>
+      </div>
+      <div class="frimas-featured-gallery">
+        <img src="images/objets/sapin-frimas-2.jpg" alt="Sapin « Frimas » – blanc naturel, duo">
+        <img src="images/objets/sapin-frimas-3.jpg" alt="Sapin « Frimas » – blanc naturel">
+        <img src="images/objets/sapin-frimas-4.jpg" alt="Sapin « Frimas » – gris-vert">
+        <img src="images/objets/sapin-frimas-5.jpg" alt="Sapin « Frimas » – gris-vert, duo">
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ─── COMMANDE ──────────────────────────────────────────────── -->
 <div class="noel-commande">
