@@ -141,8 +141,14 @@
       font-family: 'Playfair Display', serif;
       font-size: 16px; font-weight: 400; color: var(--brun); margin-bottom: 4px;
     }
+    .produit-card-price-row {
+      display: flex; align-items: baseline; gap: 10px; margin: 5px 0 3px; flex-wrap: wrap;
+    }
     .produit-card-price {
-      font-size: 14px; font-weight: 500; color: var(--texte); margin: 5px 0 3px;
+      font-size: 14px; font-weight: 500; color: var(--texte);
+    }
+    .produit-card-ensemble {
+      font-size: 11px; color: var(--leger); letter-spacing: .03em;
     }
     .produit-card-detail {
       font-size: 11px; color: var(--leger); letter-spacing: .06em;
@@ -357,16 +363,18 @@
       <div class="produit-card-info">
         <p class="produit-card-name fr-only">Pomme de pin « Strenia » porte-bonheur</p>
         <p class="produit-card-name it-only">Pigna « Strenia » portafortuna</p>
-        <p class="produit-card-price">14 €</p>
+        <div class="produit-card-price-row">
+          <span class="produit-card-price">14 €</span>
+          <span class="produit-card-ensemble fr-only">Ensemble × 3 : 35 €</span>
+          <span class="produit-card-ensemble it-only">Insieme × 3 : 35 €</span>
+        </div>
         <p class="produit-card-detail fr-only">Plâtre naturel · plusieurs coloris · série limitée</p>
         <p class="produit-card-detail it-only">Gesso naturale · più colorazioni · serie limitata</p>
         <div class="produit-desc">
           <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
           <div class="produit-desc-content">
             <p class="fr-only">Pomme de pin en plâtre teinté, coulée et finalisée à la main. La strenia est le cadeau porte-bonheur de la tradition romaine : une petite chose précieuse qu'on offre en début d'année pour attirer la chance. Nos étrennes portent encore son nom. Posée sur un rebord de fenêtre, une étagère ou une table de nuit, elle s'installe discrètement et dure. Disponible en plusieurs coloris. <strong>Hauteur 6 cm.</strong></p>
-            <p class="fr-only"><strong>Ensemble 3 pommes de pin + plateau : 35 €</strong></p>
             <p class="it-only">Pigna in gesso tinto, colata e rifinita a mano. La strenia è il regalo portafortuna della tradizione romana : un piccolo dono prezioso da offrire a inizio anno per attirare la fortuna. Posata su un davanzale, una mensola o un comodino, si sistema discretamente e dura nel tempo. Disponibile in più colorazioni. <strong>Altezza 6 cm.</strong></p>
-            <p class="it-only"><strong>Insieme 3 pigne + vassoio : 35 €</strong></p>
           </div>
         </div>
       </div>
@@ -398,16 +406,18 @@
       <div class="produit-card-info">
         <p class="produit-card-name fr-only">Sapin « Semperviva »</p>
         <p class="produit-card-name it-only">Abete « Semperviva »</p>
-        <p class="produit-card-price">15 €</p>
+        <div class="produit-card-price-row">
+          <span class="produit-card-price">15 €</span>
+          <span class="produit-card-ensemble fr-only">Ensemble × 3 : 40 €</span>
+          <span class="produit-card-ensemble it-only">Insieme × 3 : 40 €</span>
+        </div>
         <p class="produit-card-detail fr-only">Plâtre naturel · blanc naturel, vert olive, rouge/blanc</p>
         <p class="produit-card-detail it-only">Gesso naturale · bianco naturale, verde oliva, rosso/bianco</p>
         <div class="produit-desc">
           <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
           <div class="produit-desc-content">
             <p class="fr-only">Sapin en plâtre teinté, coulé et finalisé à la main. Trois coloris disponibles : blanc naturel, vert olive, rouge et blanc. À poser sur une étagère, un rebord de fenêtre ou une table de fête. Chaque pièce est unique. <strong>Hauteur 16 cm.</strong></p>
-            <p class="fr-only"><strong>Ensemble 3 sapins + plateau : 40 €</strong></p>
             <p class="it-only">Abete in gesso tinto, colato e rifinito a mano. Tre colorazioni disponibili : bianco naturale, verde oliva, rosso e bianco. Da posare su una mensola, un davanzale o una tavola di festa. Ogni pezzo è unico. <strong>Altezza 16 cm.</strong></p>
-            <p class="it-only"><strong>Insieme 3 abeti + vassoio : 40 €</strong></p>
           </div>
         </div>
       </div>
@@ -439,16 +449,18 @@
       <div class="produit-card-info">
         <p class="produit-card-name fr-only">Médaillon « Ailes d'ange »</p>
         <p class="produit-card-name it-only">Medaglione « Ali d'angelo »</p>
-        <p class="produit-card-price">8 €</p>
+        <div class="produit-card-price-row">
+          <span class="produit-card-price">8 €</span>
+          <span class="produit-card-ensemble fr-only">Ensemble × 3 : 15 €</span>
+          <span class="produit-card-ensemble it-only">Insieme × 3 : 15 €</span>
+        </div>
         <p class="produit-card-detail fr-only">Plâtre naturel · ruban satin</p>
         <p class="produit-card-detail it-only">Gesso naturale · nastro raso</p>
         <div class="produit-desc">
           <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
           <div class="produit-desc-content">
             <p class="fr-only">Un diffuseur de parfum en forme d'ailes d'ange, coulé à la main en plâtre naturel. Il suffit de déposer quelques gouttes d'huile essentielle ou de parfum sur l'arrière : le plâtre absorbe et diffuse la senteur pendant plusieurs jours, sans chaleur ni électricité. À suspendre dans une armoire, un dressing, une valise ou un tiroir, ou simplement à poser comme une pièce décorative. S'accroche aussi au sapin de Noël en décoration parfumée. Ruban de satin inclus. Chaque médaillon est unique. <strong>Hauteur 3,5 cm, largeur 9,5 cm, épaisseur 0,5 cm.</strong></p>
-            <p class="fr-only"><strong>Ensemble 3 médaillons : 15 €</strong></p>
-            <p class="it-only">Un diffusore di profumo a forma di ali d'angelo, colato a mano in gesso naturale. Basta versare qualche goccia di olio essenziale o di profumo sul retro : il gesso assorbe e diffonde la fragranza per diversi giorni, senza calore né elettricità. Da appendere in un armadio, uno spogliatoio, una valigia o un cassetto, o semplicemente da posare come oggetto decorativo. Si può appendere anche all'albero di Natale come decorazione profumata. Nastro di raso incluso. Ogni medaglione è unico. <strong>Altezza 3,5 cm, larghezza 9,5 cm, spessore 0,5 cm.</strong></p>
-            <p class="it-only"><strong>Insieme 3 medaglioni : 15 €</strong></p>
+<p class="it-only">Un diffusore di profumo a forma di ali d'angelo, colato a mano in gesso naturale. Basta versare qualche goccia di olio essenziale o di profumo sul retro : il gesso assorbe e diffonde la fragranza per diversi giorni, senza calore né elettricità. Da appendere in un armadio, uno spogliatoio, una valigia o un cassetto, o semplicemente da posare come oggetto decorativo. Si può appendere anche all'albero di Natale come decorazione profumata. Nastro di raso incluso. Ogni medaglione è unico. <strong>Altezza 3,5 cm, larghezza 9,5 cm, spessore 0,5 cm.</strong></p>
           </div>
         </div>
       </div>
