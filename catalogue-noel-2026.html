@@ -244,6 +244,24 @@
     }
     footer a { color: var(--leger); text-decoration: underline; }
 
+    /* ─── RETOUR EN HAUT ────────────────────────────────────── */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 44px; height: 44px;
+      background: var(--blanc);
+      border: 1px solid rgba(192,169,148,.4);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; text-decoration: none;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .3s;
+      z-index: 200;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-3px); }
+    .back-to-top svg { width: 16px; height: 16px; stroke: var(--brun); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 900px) {
       header { padding: 14px 20px; }
@@ -480,6 +498,11 @@
     </p>
   </section>
 
+  <!-- RETOUR EN HAUT -->
+  <a class="back-to-top" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" id="backToTop" aria-label="Retour en haut">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </a>
+
   <!-- FOOTER -->
   <footer>
     <p class="fr-only">Sylfay · Savons &amp; cosmétiques naturels · fabriqués à la main en France</p>
@@ -488,6 +511,11 @@
   </footer>
 
   <script>
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+
     function toggleLang() {
       const isIt = document.body.classList.toggle('it');
       localStorage.setItem('sylfay-lang', isIt ? 'it' : 'fr');
