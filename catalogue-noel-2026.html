@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue Noël 2026 · Sylfay</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --vert:  #38af44;
+      --brun:  #c0a994;
+      --creme: #faf8f4;
+      --gris:  #f2efea;
+      --texte: #2a2a2a;
+      --leger: #7a7067;
+      --blanc: #ffffff;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; font-weight: 400; color: var(--texte); background: var(--creme); }
+    img  { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a    { text-decoration: none; color: inherit; }
+
+    /* ─── HEADER ───────────────────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 40px;
+      background: rgba(250,248,244,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(92,74,54,.1);
+    }
+    .header-logo { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+    .header-logo-name { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--vert); letter-spacing: .02em; }
+    .header-logo-sub  { font-size: 8px; font-weight: 400; color: var(--leger); letter-spacing: .24em; text-transform: uppercase; }
+
+    /* ─── HERO ──────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 70vh;
+      min-height: 440px;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    .hero img { object-position: center 30%; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.06) 0%, rgba(0,0,0,.48) 100%);
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 100%;
+      padding: 0 24px;
+    }
+    .hero-tag {
+      font-size: 10px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(255,255,255,.72); margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 64px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--blanc);
+      line-height: 1.15;
+      text-shadow: 0 2px 20px rgba(0,0,0,.32);
+    }
+    .hero-sub {
+      font-size: clamp(11px, 1.4vw, 14px);
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-top: 12px;
+    }
+
+    /* ─── INTRO ─────────────────────────────────────────────── */
+    .intro {
+      max-width: 640px;
+      margin: 72px auto 64px;
+      padding: 0 32px;
+      text-align: center;
+    }
+    .tag {
+      display: block;
+      font-size: 10px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--vert); margin-bottom: 18px;
+    }
+    .intro p {
+      font-size: 15px; line-height: 1.9; color: var(--leger);
+    }
+
+    /* ─── SÉPARATEUR ────────────────────────────────────────── */
+    .sep {
+      border: none;
+      border-top: 1px solid rgba(192,169,148,.3);
+      max-width: 1100px;
+      margin: 0 auto 64px;
+    }
+
+    /* ─── SECTION PRODUITS ──────────────────────────────────── */
+    .section-produits {
+      max-width: 1100px;
+      margin: 0 auto 72px;
+      padding: 0 40px;
+    }
+    .section-header {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(192,169,148,.3);
+    }
+    .section-header .tag { margin-bottom: 6px; }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--texte);
+      margin-bottom: 6px;
+    }
+    .section-header .section-desc {
+      font-size: 12px;
+      color: var(--leger);
+      letter-spacing: .06em;
+    }
+
+    /* ─── GRILLE PRODUITS ───────────────────────────────────── */
+    .produit-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .produit-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 560px;
+    }
+    .produit-card { cursor: default; }
+    .produit-card-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: var(--gris);
+    }
+    .produit-card-img img { transition: transform .5s ease; }
+    .produit-card:hover .produit-card-img img { transform: scale(1.04); }
+    .produit-card-info { padding: 12px 0 0; }
+    .produit-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px; font-weight: 400; color: var(--brun);
+      line-height: 1.3; margin-bottom: 5px;
+    }
+    .produit-card-price {
+      font-size: 14px; font-weight: 500; color: var(--texte);
+    }
+    .produit-card-detail {
+      font-size: 11px; color: var(--leger); letter-spacing: .05em; margin-top: 3px;
+    }
+
+    /* ─── SECTION COMMANDE ──────────────────────────────────── */
+    .commande {
+      background: var(--gris);
+      text-align: center;
+      padding: 88px 24px;
+    }
+    .commande .tag { color: var(--leger); }
+    .commande h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 400; font-style: italic;
+      color: var(--brun); margin-bottom: 20px;
+    }
+    .commande-infos {
+      display: flex;
+      justify-content: center;
+      gap: 56px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .commande-bloc {
+      font-size: 13px; line-height: 1.9; color: var(--leger);
+    }
+    .commande-bloc strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 15px; font-weight: 400;
+      color: var(--brun); margin-bottom: 4px;
+    }
+    .btn-wa {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      background: var(--brun); color: var(--blanc);
+      padding: 16px 44px;
+      transition: background .25s;
+      margin-bottom: 48px;
+    }
+    .btn-wa:hover { background: #a8917e; }
+    .commande-note {
+      font-size: 13px; font-style: italic; color: var(--leger);
+      max-width: 480px; margin: 0 auto;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      text-align: center; padding: 28px 24px;
+      font-size: 11px; color: var(--leger);
+      border-top: 1px solid rgba(92,74,54,.1);
+    }
+    footer a { color: var(--leger); text-decoration: underline; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      header { padding: 14px 20px; }
+      .section-produits { padding: 0 20px; }
+      .produit-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .commande-infos { gap: 32px; }
+    }
+    @media (max-width: 600px) {
+      .hero { height: 58vh; }
+      .intro { margin: 52px auto 48px; }
+      .section-produits { margin-bottom: 52px; }
+      .produit-grid-2 { max-width: 100%; }
+      .commande { padding: 64px 20px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-logo">
+      <span class="header-logo-name">Sylfay</span>
+      <span class="header-logo-sub">Savons &amp; cosmétiques naturels</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero" style="margin-top:57px;">
+    <img src="images/sylfay-savon-a-la-coupe-argile-rose.jpg" alt="Sylfay – savons naturels">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Édition de Noël · 2026</p>
+      <h1 class="hero-title">Collection Noël 2026</h1>
+      <p class="hero-sub">Savons &amp; cosmétiques naturels · faits à la main en France</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <span class="tag">Sylfay</span>
+    <p>
+      Des savons et des cosmétiques fabriqués à la main, en petite série,<br>
+      avec des ingrédients naturels choisis pour leur qualité et leur douceur.<br>
+      Pas de parfums synthétiques, pas de conservateurs.<br>
+      Juste la matière, le geste, et un peu de magie.
+    </p>
+  </div>
+
+  <hr class="sep">
+
+  <!-- SAVONS -->
+  <section class="section-produits">
+    <div class="section-header">
+      <span class="tag">Savons</span>
+      <h2>Savons surgras</h2>
+      <p class="section-desc">Huile d'olive · huile de coco · huile de tournesol · méthode à froid · surgras 8 %</p>
+    </div>
+    <div class="produit-grid-4">
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/savon-argile-rose.jpeg" alt="Savon argile rose">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name">Savon argile rose</p>
+          <p class="produit-card-price">7 €</p>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/savon-calendula.jpg" alt="Savon au calendula">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name">Savon au calendula</p>
+          <p class="produit-card-price">7 €</p>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/savon-charbon-rhassoul.jpg" alt="Savon charbon & rhassoul">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name">Savon charbon &amp; rhassoul</p>
+          <p class="produit-card-price">7 €</p>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/savon-lavande.jpg" alt="Savon lavande">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name">Savon lavande</p>
+          <p class="produit-card-price">7 €</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BAUMES À LÈVRES -->
+  <section class="section-produits">
+    <div class="section-header">
+      <span class="tag">Baumes à lèvres</span>
+      <h2>Soins lèvres</h2>
+      <p class="section-desc">Huile d'amande douce · beurre de karité · cire d'abeille · parfum sucré</p>
+    </div>
+    <div class="produit-grid-2">
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/baume-levres-neutre.jpg" alt="Baume à lèvres neutre">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name">Baume à lèvres neutre</p>
+          <p class="produit-card-price">5 €</p>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/baume-levres-rouge.jpg" alt="Baume à lèvres teinté">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name">Baume à lèvres teinté</p>
+          <p class="produit-card-price">5 €</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SOINS VISAGE -->
+  <section class="section-produits">
+    <div class="section-header">
+      <span class="tag">Soins visage</span>
+      <h2>Soins visage solides</h2>
+      <p class="section-desc">SCI · huile d'amande douce · beurre de karité · argile blanche ou bleue</p>
+    </div>
+    <div class="produit-grid-2">
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/soin-visage-blanc.jpg" alt="Soin visage argile blanche">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name">Soin visage – argile blanche</p>
+          <p class="produit-card-price">7 €</p>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/soin-visage-bleu.jpg" alt="Soin visage argile bleue">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name">Soin visage – argile bleue</p>
+          <p class="produit-card-price">7 €</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMMANDE -->
+  <section class="commande">
+    <span class="tag">Commander</span>
+    <h2>Comment commander ?</h2>
+
+    <div class="commande-infos">
+      <div class="commande-bloc">
+        <strong>Informations &amp; commandes</strong>
+        M'écrire directement en indiquant<br>
+        les produits souhaités et les quantités.
+      </div>
+      <div class="commande-bloc">
+        <strong>Livraison</strong>
+        En point relais · à partir de 5 € / jusqu'à 2 kg<br>
+        Remise en main propre à Paris possible
+      </div>
+      <div class="commande-bloc">
+        <strong>Dernier délai</strong>
+        Commandes acceptées<br>
+        jusqu'au <strong style="font-family:'Montserrat';font-size:13px;font-weight:600;color:var(--texte);">4 décembre 2026</strong>
+      </div>
+    </div>
+
+    <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20un%20produit%20Sylfay." class="btn-wa" target="_blank">Commander sur WhatsApp</a>
+
+    <p class="commande-note">
+      Chaque préparation est faite à la main, avec le même soin que si elle était pour moi.<br>
+      Une façon de prendre soin de soi, d'offrir quelque chose d'original et de soutenir une petite marque artisanale.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Sylfay · Savons &amp; cosmétiques naturels · fabriqués à la main en France</p>
+    <p style="margin-top:6px;"><a href="https://maison-sylfay.com">maison-sylfay.com</a></p>
+  </footer>
+
+</body>
+</html>
