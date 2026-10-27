@@ -6,6 +6,12 @@
   <title>Catalogue Noël 2026 · Sylfay</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <meta property="og:title" content="Collection Noël 2026 · Sylfay">
+  <meta property="og:description" content="Savons et cosmétiques naturels faits à la main — collection de Noël 2026. Commande via WhatsApp jusqu'au 4 décembre.">
+  <meta property="og:image" content="https://maison-sylfay.com/images/sylfay-savon-a-la-coupe-argile-rose.jpg">
+  <meta property="og:url" content="https://maison-sylfay.com/catalogue-noel-2026.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -27,6 +33,21 @@
     img  { display: block; width: 100%; height: 100%; object-fit: cover; }
     a    { text-decoration: none; color: inherit; }
 
+    /* ─── BILINGUE ──────────────────────────────────────────── */
+    .it-only { display: none !important; }
+    span.it-only { display: none !important; }
+    body.it .fr-only { display: none !important; }
+    body.it span.fr-only { display: none !important; }
+    body.it .it-only { display: block !important; }
+    body.it span.it-only { display: inline !important; }
+    body.it a.it-only { display: inline-block !important; }
+    .lang-btn {
+      font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--leger); background: none;
+      border: 1px solid var(--leger); padding: 4px 10px; cursor: pointer; transition: all .2s;
+    }
+    .lang-btn:hover { color: var(--brun); border-color: var(--brun); }
+
     /* ─── HEADER ───────────────────────────────────────────── */
     header {
       position: fixed;
@@ -35,6 +56,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 24px;
       padding: 16px 40px;
       background: rgba(250,248,244,.92);
       backdrop-filter: blur(8px);
@@ -168,9 +190,6 @@
     .produit-card-price {
       font-size: 14px; font-weight: 500; color: var(--texte);
     }
-    .produit-card-detail {
-      font-size: 11px; color: var(--leger); letter-spacing: .05em; margin-top: 3px;
-    }
 
     /* ─── SECTION COMMANDE ──────────────────────────────────── */
     .commande {
@@ -248,8 +267,10 @@
   <header>
     <div class="header-logo">
       <span class="header-logo-name">Sylfay</span>
-      <span class="header-logo-sub">Savons &amp; cosmétiques naturels</span>
+      <span class="header-logo-sub fr-only">Savons &amp; cosmétiques naturels</span>
+      <span class="header-logo-sub it-only">Saponi &amp; cosmetici naturali</span>
     </div>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">IT / FR</button>
   </header>
 
   <!-- HERO -->
@@ -257,20 +278,29 @@
     <img src="images/sylfay-savon-a-la-coupe-argile-rose.jpg" alt="Sylfay – savons naturels">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-tag">Édition de Noël · 2026</p>
-      <h1 class="hero-title">Collection Noël 2026</h1>
-      <p class="hero-sub">Savons &amp; cosmétiques naturels · faits à la main en France</p>
+      <p class="hero-tag fr-only">Édition de Noël · 2026</p>
+      <p class="hero-tag it-only">Edizione Natale · 2026</p>
+      <h1 class="hero-title fr-only">Collection Noël 2026</h1>
+      <h1 class="hero-title it-only">Collezione Natale 2026</h1>
+      <p class="hero-sub fr-only">Savons &amp; cosmétiques naturels · faits à la main en France</p>
+      <p class="hero-sub it-only">Saponi &amp; cosmetici naturali · fatti a mano in Francia</p>
     </div>
   </div>
 
   <!-- INTRO -->
   <div class="intro">
     <span class="tag">Sylfay</span>
-    <p>
+    <p class="fr-only">
       Des savons et des cosmétiques fabriqués à la main, en petite série,<br>
       avec des ingrédients naturels choisis pour leur qualité et leur douceur.<br>
       Pas de parfums synthétiques, pas de conservateurs.<br>
       Juste la matière, le geste, et un peu de magie.
+    </p>
+    <p class="it-only">
+      Saponi e cosmetici fatti a mano, in piccola serie,<br>
+      con ingredienti naturali scelti per la loro qualità e dolcezza.<br>
+      Niente profumi sintetici, niente conservanti.<br>
+      Solo la materia, il gesto, e un po' di magia.
     </p>
   </div>
 
@@ -279,9 +309,12 @@
   <!-- SAVONS -->
   <section class="section-produits">
     <div class="section-header">
-      <span class="tag">Savons</span>
-      <h2>Savons surgras</h2>
-      <p class="section-desc">Huile d'olive · huile de coco · huile de tournesol · méthode à froid · surgras 8 %</p>
+      <span class="tag fr-only">Savons</span>
+      <span class="tag it-only">Saponi</span>
+      <h2 class="fr-only">Savons surgras</h2>
+      <h2 class="it-only">Saponi surgras</h2>
+      <p class="section-desc fr-only">Huile d'olive · huile de coco · huile de tournesol · méthode à froid · surgras 8 %</p>
+      <p class="section-desc it-only">Olio d'oliva · olio di cocco · olio di girasole · metodo a freddo · sovraspesato 8 %</p>
     </div>
     <div class="produit-grid-4">
 
@@ -290,7 +323,8 @@
           <img src="images/savons/savon-argile-rose.jpeg" alt="Savon argile rose">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name">Savon argile rose</p>
+          <p class="produit-card-name fr-only">Savon argile rose</p>
+          <p class="produit-card-name it-only">Sapone argilla rosa</p>
           <p class="produit-card-price">7 €</p>
         </div>
       </div>
@@ -300,7 +334,8 @@
           <img src="images/savons/savon-calendula.jpg" alt="Savon au calendula">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name">Savon au calendula</p>
+          <p class="produit-card-name fr-only">Savon au calendula</p>
+          <p class="produit-card-name it-only">Sapone alla calendula</p>
           <p class="produit-card-price">7 €</p>
         </div>
       </div>
@@ -310,7 +345,8 @@
           <img src="images/savons/savon-charbon-rhassoul.jpg" alt="Savon charbon & rhassoul">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name">Savon charbon &amp; rhassoul</p>
+          <p class="produit-card-name fr-only">Savon charbon &amp; rhassoul</p>
+          <p class="produit-card-name it-only">Sapone carbone &amp; rassoul</p>
           <p class="produit-card-price">7 €</p>
         </div>
       </div>
@@ -320,7 +356,8 @@
           <img src="images/savons/savon-lavande.jpg" alt="Savon lavande">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name">Savon lavande</p>
+          <p class="produit-card-name fr-only">Savon lavande</p>
+          <p class="produit-card-name it-only">Sapone lavanda</p>
           <p class="produit-card-price">7 €</p>
         </div>
       </div>
@@ -331,9 +368,12 @@
   <!-- BAUMES À LÈVRES -->
   <section class="section-produits">
     <div class="section-header">
-      <span class="tag">Baumes à lèvres</span>
-      <h2>Soins lèvres</h2>
-      <p class="section-desc">Huile d'amande douce · beurre de karité · cire d'abeille · parfum sucré</p>
+      <span class="tag fr-only">Baumes à lèvres</span>
+      <span class="tag it-only">Burri labbra</span>
+      <h2 class="fr-only">Soins lèvres</h2>
+      <h2 class="it-only">Cura delle labbra</h2>
+      <p class="section-desc fr-only">Huile d'amande douce · beurre de karité · cire d'abeille · parfum sucré</p>
+      <p class="section-desc it-only">Olio di mandorle dolci · burro di karité · cera d'api · profumo dolce</p>
     </div>
     <div class="produit-grid-2">
 
@@ -342,7 +382,8 @@
           <img src="images/savons/baume-levres-neutre.jpg" alt="Baume à lèvres neutre">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name">Baume à lèvres neutre</p>
+          <p class="produit-card-name fr-only">Baume à lèvres neutre</p>
+          <p class="produit-card-name it-only">Burro labbra neutro</p>
           <p class="produit-card-price">5 €</p>
         </div>
       </div>
@@ -352,7 +393,8 @@
           <img src="images/savons/baume-levres-rouge.jpg" alt="Baume à lèvres teinté">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name">Baume à lèvres teinté</p>
+          <p class="produit-card-name fr-only">Baume à lèvres teinté</p>
+          <p class="produit-card-name it-only">Burro labbra leggermente rosato</p>
           <p class="produit-card-price">5 €</p>
         </div>
       </div>
@@ -363,9 +405,12 @@
   <!-- SOINS VISAGE -->
   <section class="section-produits">
     <div class="section-header">
-      <span class="tag">Soins visage</span>
-      <h2>Soins visage solides</h2>
-      <p class="section-desc">SCI · huile d'amande douce · beurre de karité · argile blanche ou bleue</p>
+      <span class="tag fr-only">Soins visage</span>
+      <span class="tag it-only">Detergenti viso</span>
+      <h2 class="fr-only">Soins visage solides</h2>
+      <h2 class="it-only">Detergenti viso solidi</h2>
+      <p class="section-desc fr-only">SCI · huile d'amande douce · beurre de karité · argile blanche ou bleue</p>
+      <p class="section-desc it-only">SCI · olio di mandorle dolci · burro di karité · argilla bianca o blu</p>
     </div>
     <div class="produit-grid-2">
 
@@ -374,7 +419,8 @@
           <img src="images/savons/soin-visage-blanc.jpg" alt="Soin visage argile blanche">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name">Soin visage – argile blanche</p>
+          <p class="produit-card-name fr-only">Soin visage – argile blanche</p>
+          <p class="produit-card-name it-only">Detergente viso – argilla bianca</p>
           <p class="produit-card-price">7 €</p>
         </div>
       </div>
@@ -384,7 +430,8 @@
           <img src="images/savons/soin-visage-bleu.jpg" alt="Soin visage argile bleue">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name">Soin visage – argile bleue</p>
+          <p class="produit-card-name fr-only">Soin visage – argile bleue</p>
+          <p class="produit-card-name it-only">Detergente viso – argilla blu</p>
           <p class="produit-card-price">7 €</p>
         </div>
       </div>
@@ -394,40 +441,65 @@
 
   <!-- COMMANDE -->
   <section class="commande">
-    <span class="tag">Commander</span>
-    <h2>Comment commander ?</h2>
+    <span class="tag fr-only">Commander</span>
+    <span class="tag it-only">Ordinare</span>
+    <h2 class="fr-only">Comment commander ?</h2>
+    <h2 class="it-only">Come ordinare ?</h2>
 
     <div class="commande-infos">
       <div class="commande-bloc">
-        <strong>Informations &amp; commandes</strong>
-        M'écrire directement en indiquant<br>
-        les produits souhaités et les quantités.
+        <strong class="fr-only">Informations &amp; commandes</strong>
+        <strong class="it-only">Informazioni &amp; ordini</strong>
+        <span class="fr-only">M'écrire directement en indiquant<br>les produits souhaités et les quantités.</span>
+        <span class="it-only">Scrivimi direttamente indicando<br>i prodotti desiderati e le quantità.</span>
       </div>
       <div class="commande-bloc">
-        <strong>Livraison</strong>
-        En point relais · à partir de 5 € / jusqu'à 2 kg<br>
-        Remise en main propre à Paris possible
+        <strong class="fr-only">Livraison</strong>
+        <strong class="it-only">Spedizione</strong>
+        <span class="fr-only">En point relais · à partir de 5 € / jusqu'à 2 kg<br>Remise en main propre à Paris possible</span>
+        <span class="it-only">In punto di ritiro · a partire da 5 € fino a 2 kg<br>Consegna a mano a Parigi possibile</span>
       </div>
       <div class="commande-bloc">
-        <strong>Dernier délai</strong>
-        Commandes acceptées<br>
-        jusqu'au <strong style="font-family:'Montserrat';font-size:13px;font-weight:600;color:var(--texte);">4 décembre 2026</strong>
+        <strong class="fr-only">Dernier délai</strong>
+        <strong class="it-only">Ultimo termine</strong>
+        <span class="fr-only">Commandes acceptées jusqu'au<br><b style="font-weight:600;color:var(--texte);">4 décembre 2026</b></span>
+        <span class="it-only">Ordini accettati fino al<br><b style="font-weight:600;color:var(--texte);">4 dicembre 2026</b></span>
       </div>
     </div>
 
-    <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20un%20produit%20Sylfay." class="btn-wa" target="_blank">Commander sur WhatsApp</a>
+    <a href="https://wa.me/393513016773?text=Bonjour%2C%20je%20souhaite%20commander%20un%20produit%20Sylfay." class="btn-wa fr-only" target="_blank">Commander sur WhatsApp</a>
+    <a href="https://wa.me/393513016773?text=Buongiorno%2C%20vorrei%20ordinare%20un%20prodotto%20Sylfay." class="btn-wa it-only" target="_blank">Ordina su WhatsApp</a>
 
-    <p class="commande-note">
+    <p class="commande-note fr-only">
       Chaque préparation est faite à la main, avec le même soin que si elle était pour moi.<br>
       Une façon de prendre soin de soi, d'offrir quelque chose d'original et de soutenir une petite marque artisanale.
+    </p>
+    <p class="commande-note it-only">
+      Ogni preparazione è fatta a mano, con la stessa cura come se fosse per me.<br>
+      Un modo di prendersi cura di sé, di regalare qualcosa di originale e di sostenere un piccolo marchio artigianale.
     </p>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>Sylfay · Savons &amp; cosmétiques naturels · fabriqués à la main en France</p>
+    <p class="fr-only">Sylfay · Savons &amp; cosmétiques naturels · fabriqués à la main en France</p>
+    <p class="it-only">Sylfay · Saponi &amp; cosmetici naturali · fatti a mano in Francia</p>
     <p style="margin-top:6px;"><a href="https://maison-sylfay.com">maison-sylfay.com</a></p>
   </footer>
+
+  <script>
+    function toggleLang() {
+      const isIt = document.body.classList.toggle('it');
+      localStorage.setItem('sylfay-lang', isIt ? 'it' : 'fr');
+      document.documentElement.lang = isIt ? 'it' : 'fr';
+    }
+    // Auto-detect ou restore préférence
+    const saved = localStorage.getItem('sylfay-lang');
+    if (saved === 'it' || (!saved && navigator.language.toLowerCase().startsWith('it'))) {
+      document.body.classList.add('it');
+      document.documentElement.lang = 'it';
+    }
+  </script>
 
 </body>
 </html>
