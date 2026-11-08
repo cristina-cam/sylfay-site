@@ -160,6 +160,12 @@
       color: var(--leger);
       letter-spacing: .06em;
     }
+    .section-intro {
+      font-size: 13px;
+      color: var(--leger);
+      line-height: 1.75;
+      margin-top: 10px;
+    }
 
     /* ─── GRILLE PRODUITS ───────────────────────────────────── */
     .produit-grid-4 {
@@ -172,6 +178,11 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       max-width: 560px;
+    }
+    .produit-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
     .produit-card { cursor: default; }
     .produit-card-img {
@@ -274,7 +285,63 @@
       .intro { margin: 52px auto 48px; }
       .section-produits { margin-bottom: 52px; }
       .produit-grid-2 { max-width: 100%; }
+      .produit-grid-3 { grid-template-columns: 1fr 1fr; }
       .commande { padding: 64px 20px; }
+    }
+
+    /* ─── DESCRIPTION DÉROULANTE ────────────────────────────── */
+    .produit-desc { margin-top: 12px; border-top: 1px solid rgba(192,169,148,.25); padding-top: 10px; }
+    .produit-desc-btn {
+      background: none; border: none; padding: 0;
+      font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--leger);
+      cursor: pointer; display: flex; align-items: center; gap: 5px;
+    }
+    .produit-desc-btn::before { content: '﹢'; font-size: 13px; }
+    .produit-desc.open .produit-desc-btn::before { content: '﹣'; }
+    .produit-desc-content { display: none; margin-top: 12px; }
+    .produit-desc.open .produit-desc-content { display: block; }
+    .produit-desc-content p { font-size: 12px; line-height: 1.8; color: var(--leger); margin-bottom: 10px; }
+    .produit-desc-content h4 { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--texte); margin: 14px 0 6px; }
+    .produit-desc-content ul { padding-left: 16px; margin-bottom: 10px; }
+    .produit-desc-content ul li { font-size: 12px; line-height: 1.8; color: var(--leger); }
+
+    /* ─── BLOC PRODUIT FEATURED ────────────────────────────── */
+    .trio-featured {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin: 48px auto 72px;
+      max-width: 1100px;
+      padding: 0 40px;
+    }
+    .trio-featured-img {
+      flex: 0 0 48%;
+      max-width: 48%;
+    }
+    .trio-featured-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .trio-featured-info {
+      flex: 1;
+    }
+    .trio-featured-info .produit-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 400; color: var(--brun);
+      line-height: 1.3; margin-bottom: 10px;
+    }
+    .trio-featured-info .produit-card-price {
+      font-size: 14px; font-weight: 500; color: var(--texte);
+      margin-bottom: 14px;
+    }
+    .trio-featured-info .trio-desc {
+      font-size: 13px; color: var(--leger); line-height: 1.8;
+    }
+    @media (max-width: 700px) {
+      .trio-featured { flex-direction: column; gap: 24px; }
+      .trio-featured-img { flex: none; max-width: 100%; }
     }
 
   </style>
@@ -329,10 +396,12 @@
     <div class="section-header">
       <span class="tag fr-only">Savons</span>
       <span class="tag it-only">Saponi</span>
-      <h2 class="fr-only">Savons surgras</h2>
-      <h2 class="it-only">Saponi surgras</h2>
+      <h2 class="fr-only">Savons surgras pour le corps</h2>
+      <h2 class="it-only">Saponi surgras per il corpo</h2>
       <p class="section-desc fr-only">Huile d'olive · huile de coco · huile de tournesol · méthode à froid · surgras 8 %</p>
       <p class="section-desc it-only">Olio d'oliva · olio di cocco · olio di girasole · metodo a freddo · surgras 8 %</p>
+      <p class="section-intro fr-only">La saponification à froid préserve les propriétés naturelles des huiles et maintient la glycérine dans le savon. C'est cette glycérine qui rend la peau douce après le rinçage ; elle disparaît dans les savons industriels. Le surgras à 8 % garantit qu'une partie des huiles reste libre dans le savon, pour une douceur supplémentaire.</p>
+      <p class="section-intro it-only">La saponificazione a freddo preserva le proprietà naturali degli oli e mantiene la glicerina nel sapone. È questa glicerina che lascia la pelle morbida dopo il risciacquo ; nei saponi industriali viene estratta e rivenduta. Il surgras all'8 % garantisce che una parte degli oli rimanga libera nel sapone, per una morbidezza in più.</p>
     </div>
     <div class="produit-grid-4">
 
@@ -341,9 +410,16 @@
           <img src="images/savons/savon-argile-rose.jpeg" alt="Savon argile rose">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Savon argile rose</p>
-          <p class="produit-card-name it-only">Sapone argilla rosa</p>
-          <p class="produit-card-price">7 €</p>
+          <p class="produit-card-name fr-only">Savon argile rose · 75 g</p>
+          <p class="produit-card-name it-only">Sapone argilla rosa · 75 g</p>
+          <p class="produit-card-price">8 €</p>
+          <div class="produit-desc">
+            <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
+            <div class="produit-desc-content">
+              <p class="fr-only">L'argile rose est un mélange d'argile rouge et d'argile blanche : elle purifie en douceur sans assécher. Ce savon convient aux peaux normales à sensibles. Il nettoie en profondeur tout en respectant le film hydrolipidique naturel de la peau, grâce au taux de surgras élevé.</p>
+              <p class="it-only">L'argilla rosa è un misto di argilla rossa e argilla bianca : purifica delicatamente senza seccare. Questo sapone è adatto alle pelli normali e sensibili. Pulisce in profondità rispettando il film idrolipidico naturale della pelle, grazie all'alto tasso di surgras.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -352,9 +428,16 @@
           <img src="images/savons/savon-calendula.jpg" alt="Savon au calendula">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Savon au calendula</p>
-          <p class="produit-card-name it-only">Sapone alla calendula</p>
-          <p class="produit-card-price">7 €</p>
+          <p class="produit-card-name fr-only">Savon au calendula · 75 g</p>
+          <p class="produit-card-name it-only">Sapone alla calendula · 75 g</p>
+          <p class="produit-card-price">8 €</p>
+          <div class="produit-desc">
+            <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
+            <div class="produit-desc-content">
+              <p class="fr-only">Le calendula est réputé pour ses propriétés apaisantes et cicatrisantes. Ses fleurs sont macérées dans les huiles avant saponification : elles libèrent leurs actifs directement dans le savon. Idéal pour les peaux sèches, irritées ou réactives, et pour les peaux de bébé.</p>
+              <p class="it-only">La calendula è rinomata per le sue proprietà lenitive e cicatrizzanti. I suoi fiori vengono macerati negli oli prima della saponificazione : rilasciano i loro principi attivi direttamente nel sapone. Ideale per pelli secche, irritate o reattive, e per la pelle dei bambini.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -363,9 +446,16 @@
           <img src="images/savons/savon-charbon-rhassoul.jpg" alt="Savon charbon & rhassoul">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Savon charbon &amp; rhassoul</p>
-          <p class="produit-card-name it-only">Sapone carbone &amp; rassoul</p>
-          <p class="produit-card-price">7 €</p>
+          <p class="produit-card-name fr-only">Savon charbon &amp; rhassoul · 75 g</p>
+          <p class="produit-card-name it-only">Sapone carbone &amp; rassoul · 75 g</p>
+          <p class="produit-card-price">8 €</p>
+          <div class="produit-desc">
+            <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
+            <div class="produit-desc-content">
+              <p class="fr-only">Le charbon végétal activé absorbe les impuretés et les excès de sébum en profondeur. Le rhassoul, argile volcanique du Maroc, minéralise et affine le grain de peau. Ce savon est taillé pour les peaux mixtes à grasses et les peaux à tendance acnéique. Sa couleur noire intense est 100 % naturelle.</p>
+              <p class="it-only">Il carbone vegetale attivato assorbe le impurità e l'eccesso di sebo in profondità. Il rassoul, argilla vulcanica del Marocco, mineralizza e affina la grana della pelle. Questo sapone è pensato per le pelli miste e grasse e per le pelli a tendenza acneica. Il suo colore nero intenso è 100 % naturale.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -374,9 +464,16 @@
           <img src="images/savons/savon-lavande.jpg" alt="Savon lavande">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Savon lavande</p>
-          <p class="produit-card-name it-only">Sapone lavanda</p>
-          <p class="produit-card-price">7 €</p>
+          <p class="produit-card-name fr-only">Savon lavande · 75 g</p>
+          <p class="produit-card-name it-only">Sapone lavanda · 75 g</p>
+          <p class="produit-card-price">8 €</p>
+          <div class="produit-desc">
+            <button class="produit-desc-btn" type="button"><span class="fr-only">Description</span><span class="it-only">Descrizione</span></button>
+            <div class="produit-desc-content">
+              <p class="fr-only">La lavande vraie est l'huile essentielle la plus polyvalente : apaisante, légèrement antibactérienne, son parfum naturel favorise la détente. Ce savon convient à tous types de peau. Sa légère odeur florale et reposante en fait le savon idéal du soir, pour finir la journée en douceur.</p>
+              <p class="it-only">La lavanda vera è l'olio essenziale più versatile : lenitiva, leggermente antibatterica, il suo profumo naturale favorisce il relax. Questo sapone è adatto a tutti i tipi di pelle. Il suo aroma floreale e rilassante lo rende il sapone ideale della sera, per concludere la giornata in dolcezza.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -392,6 +489,8 @@
       <h2 class="it-only">Cura delle labbra</h2>
       <p class="section-desc fr-only">Huile d'amande douce · beurre de karité · cire d'abeille · parfum sucré</p>
       <p class="section-desc it-only">Olio di mandorle dolci · burro di karité · cera d'api · profumo dolce</p>
+      <p class="section-intro fr-only">La cire d'abeille forme un film protecteur naturel qui retient l'hydratation ; l'huile d'amande douce et le beurre de karité nourrissent en profondeur. Le parfum sucré est naturel. Un soin simple, efficace, fait en petites séries.</p>
+      <p class="section-intro it-only">La cera d'api forma un film protettivo naturale che trattiene l'idratazione ; l'olio di mandorle dolci e il burro di karité nutrono in profondità. Il profumo dolce è naturale. Una cura semplice, efficace, fatta in piccole serie.</p>
     </div>
     <div class="produit-grid-2">
 
@@ -400,9 +499,9 @@
           <img src="images/savons/baume-levres-neutre.jpg" alt="Baume à lèvres neutre">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Baume à lèvres neutre</p>
-          <p class="produit-card-name it-only">Burro labbra neutro</p>
-          <p class="produit-card-price">5 €</p>
+          <p class="produit-card-name fr-only">Baume à lèvres neutre · 5 g</p>
+          <p class="produit-card-name it-only">Burro labbra neutro · 5 g</p>
+          <p class="produit-card-price">6 €</p>
         </div>
       </div>
 
@@ -411,9 +510,9 @@
           <img src="images/savons/baume-levres-rouge.jpg" alt="Baume à lèvres teinté">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Baume à lèvres teinté</p>
-          <p class="produit-card-name it-only">Burro labbra leggermente rosato</p>
-          <p class="produit-card-price">5 €</p>
+          <p class="produit-card-name fr-only">Baume à lèvres teinté · 5 g</p>
+          <p class="produit-card-name it-only">Burro labbra leggermente rosato · 5 g</p>
+          <p class="produit-card-price">6 €</p>
         </div>
       </div>
 
@@ -423,39 +522,66 @@
   <!-- SOINS VISAGE -->
   <section class="section-produits">
     <div class="section-header">
-      <span class="tag fr-only">Soins visage</span>
-      <span class="tag it-only">Detergenti viso</span>
-      <h2 class="fr-only">Soins visage solides</h2>
-      <h2 class="it-only">Detergenti viso solidi</h2>
-      <p class="section-desc fr-only">SCI · huile d'amande douce · beurre de karité · argile blanche ou bleue</p>
-      <p class="section-desc it-only">SCI · olio di mandorle dolci · burro di karité · argilla bianca o blu</p>
+      <span class="tag fr-only">Nettoyant visage solide</span>
+      <span class="tag it-only">Detergente viso solido</span>
+      <h2 class="fr-only">Nettoyant visage solide</h2>
+      <h2 class="it-only">Detergente viso solido</h2>
+      <p class="section-desc fr-only">SCI · beurre de karité · huile de ricin · arrow-root · acide stéarique · cire émulsifiante · argile · conservateur cosgard · vitamine E</p>
+      <p class="section-desc it-only">SCI · burro di karité · olio di ricino · arrow-root · acido stearico · cera emulsionante · argilla · conservante cosgard · vitamina E</p>
+      <p class="section-intro fr-only">Un seul geste pour démaquiller et nettoyer la peau. Au contact de l'eau, le galet moussant fait fondre le maquillage et se rince facilement, sans film gras. Formulé sans huile de coco, il convient aux peaux sensibles comme aux peaux mixtes. Trois versions : argile bleue pour un nettoyage en profondeur, argile blanche pour une purification douce, argile rouge pour les peaux normales à mixtes.</p>
+      <p class="section-intro it-only">Un solo gesto per struccare e detergere la pelle. A contatto con l'acqua, il panetto scioglie il trucco e si risciacqua facilmente, senza film unto. Formulato senza olio di cocco, è adatto alle pelli sensibili come a quelle miste. Tre versioni : argilla blu per una detersione in profondità, argilla bianca per una pulizia delicata, argilla rossa per le pelli normali e miste.</p>
     </div>
-    <div class="produit-grid-2">
-
-      <div class="produit-card">
-        <div class="produit-card-img">
-          <img src="images/savons/soin-visage-blanc.jpg" alt="Soin visage argile blanche">
-        </div>
-        <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Soin visage – argile blanche</p>
-          <p class="produit-card-name it-only">Detergente viso – argilla bianca</p>
-          <p class="produit-card-price">7 €</p>
-        </div>
-      </div>
+    <div class="produit-grid-3">
 
       <div class="produit-card">
         <div class="produit-card-img">
           <img src="images/savons/soin-visage-bleu.jpg" alt="Soin visage argile bleue">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Soin visage – argile bleue</p>
-          <p class="produit-card-name it-only">Detergente viso – argilla blu</p>
-          <p class="produit-card-price">7 €</p>
+          <p class="produit-card-name fr-only">Nettoyant visage – argile bleue · 60 g</p>
+          <p class="produit-card-name it-only">Detergente viso – argilla blu · 60 g</p>
+          <p class="produit-card-price">9 €</p>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/soin-visage-blanc.jpg" alt="Soin visage argile blanche">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name fr-only">Nettoyant visage – argile blanche · 60 g</p>
+          <p class="produit-card-name it-only">Detergente viso – argilla bianca · 60 g</p>
+          <p class="produit-card-price">9 €</p>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img">
+          <img src="images/savons/soin-visage-rouge.png" alt="Soin visage argile rouge">
+        </div>
+        <div class="produit-card-info">
+          <p class="produit-card-name fr-only">Nettoyant visage – argile rouge · 60 g</p>
+          <p class="produit-card-name it-only">Detergente viso – argilla rossa · 60 g</p>
+          <p class="produit-card-price">9 €</p>
         </div>
       </div>
 
     </div>
   </section>
+
+  <!-- TRIO VOYAGE -->
+  <div class="trio-featured">
+    <div class="trio-featured-img">
+      <img src="images/savons/trio-nettoyants-voyage.png" alt="Trio nettoyants format voyage">
+    </div>
+    <div class="trio-featured-info">
+      <p class="produit-card-name fr-only">Trio nettoyants format voyage · 25 g</p>
+      <p class="produit-card-name it-only">Trio detergenti formato viaggio · 25 g</p>
+      <p class="produit-card-price">15 €</p>
+      <p class="trio-desc fr-only">La version mini pour partir léger ou tester avant d'acheter le grand format. Argile bleue, argile blanche et argile rouge : trois galets de 25 g, compacts et faciles à glisser dans une trousse de voyage.</p>
+      <p class="trio-desc it-only">La versione mini per viaggiare leggeri o provare prima di acquistare il formato grande. Argilla blu, argilla bianca e argilla rossa : tre panetti da 25 g, compatti e facili da infilare in un beauty da viaggio.</p>
+    </div>
+  </div>
 
   <!-- COMMANDE -->
   <section class="commande">
@@ -511,6 +637,10 @@
   </footer>
 
   <script>
+    document.querySelectorAll('.produit-desc-btn').forEach(btn => {
+      btn.addEventListener('click', () => btn.closest('.produit-desc').classList.toggle('open'));
+    });
+
     const backBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       backBtn.classList.toggle('visible', window.scrollY > 400);
