@@ -179,6 +179,7 @@
       gap: 20px;
       max-width: 560px;
     }
+    .produit-grid-2--wide { max-width: none; }
     .produit-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -288,6 +289,26 @@
       .produit-grid-3 { grid-template-columns: 1fr 1fr; }
       .commande { padding: 64px 20px; }
     }
+
+    /* ─── CAROUSEL ──────────────────────────────────────────── */
+    .has-carousel .produit-card-img img { transition: none; }
+    .carousel { position: relative; width: 100%; height: 100%; overflow: hidden; }
+    .carousel-track { display: flex; height: 100%; transition: transform .45s cubic-bezier(.25,.46,.45,.94); }
+    .carousel-track img { flex-shrink: 0; width: 100%; height: 100%; object-fit: cover; }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.8); border: none; cursor: pointer;
+      width: 28px; height: 28px; border-radius: 50%; font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--texte); z-index: 10; transition: background .2s;
+    }
+    .carousel-btn:hover { background: rgba(255,255,255,.95); }
+    .carousel-prev { left: 8px; }
+    .carousel-next { right: 8px; }
+    .carousel-dots { position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; gap: 5px; z-index: 10; }
+    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.5); cursor: pointer; transition: background .2s; }
+    .carousel-dot.active { background: #fff; }
+    .nettoyant-variants { font-size: 11px; color: var(--leger); margin-top: 6px; letter-spacing: .04em; }
 
     /* ─── DESCRIPTION DÉROULANTE ────────────────────────────── */
     .produit-desc { margin-top: 12px; border-top: 1px solid rgba(192,169,148,.25); padding-top: 10px; }
@@ -533,58 +554,85 @@
       <h2 class="it-only">Detergente viso solido</h2>
       <p class="section-desc fr-only">SCI · beurre de karité · huile de ricin · arrow-root · acide stéarique · cire émulsifiante · argile · conservateur cosgard · vitamine E</p>
       <p class="section-desc it-only">SCI · burro di karité · olio di ricino · arrow-root · acido stearico · cera emulsionante · argilla · conservante cosgard · vitamina E</p>
-      <p class="section-intro fr-only">Un nettoyant solide qui nettoie en profondeur sans agresser la peau. Au contact de l'eau, le galet mousse et se rince facilement, sans film gras. Convient aussi pour enlever le maquillage du quotidien. Formulé sans huile de coco, il convient aux peaux sensibles comme aux peaux mixtes. Trois versions : argile bleue pour un nettoyage en profondeur, argile blanche pour une purification douce, argile rouge pour les peaux normales à mixtes.</p>
-      <p class="section-intro it-only">Un detergente solido che pulisce in profondità senza aggredire la pelle. A contatto con l'acqua, il panetto fa schiuma e si risciacqua facilmente, senza film unto. Va bene anche per rimuovere il trucco di tutti i giorni. Formulato senza olio di cocco, è adatto alle pelli sensibili come a quelle miste. Tre versioni : argilla blu per una detersione in profondità, argilla bianca per una pulizia delicata, argilla rossa per le pelli normali e miste.</p>
     </div>
-    <div class="produit-grid-3">
+    <div class="produit-grid-2">
 
-      <div class="produit-card">
+      <div class="produit-card has-carousel">
         <div class="produit-card-img">
-          <img src="images/savons/soin-visage-bleu.jpg" alt="Soin visage argile bleue">
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              <img src="images/savons/soin-visage-bleu.jpg" alt="Nettoyant visage argile bleue">
+              <img src="images/savons/soin-visage-blanc.jpg" alt="Nettoyant visage argile blanche">
+              <img src="images/savons/soin-visage-rouge.png" alt="Nettoyant visage argile rouge">
+            </div>
+            <button class="carousel-btn carousel-prev" aria-label="Précédent">&#8249;</button>
+            <button class="carousel-btn carousel-next" aria-label="Suivant">&#8250;</button>
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+              <span class="carousel-dot"></span>
+            </div>
+          </div>
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Nettoyant visage – argile bleue · 60 g</p>
-          <p class="produit-card-name it-only">Detergente viso – argilla blu · 60 g</p>
+          <p class="produit-card-name fr-only">Nettoyant visage solide · 60 g</p>
+          <p class="produit-card-name it-only">Detergente viso solido · 60 g</p>
           <p class="produit-card-price">9 €</p>
+          <p class="nettoyant-variants fr-only">Argile bleue · argile blanche · argile rouge</p>
+          <p class="nettoyant-variants it-only">Argilla blu · argilla bianca · argilla rossa</p>
+          <div class="produit-desc">
+            <button class="produit-desc-btn fr-only">Description</button>
+            <button class="produit-desc-btn it-only">Descrizione</button>
+            <div class="produit-desc-content">
+              <p class="fr-only">Un nettoyant solide qui nettoie en profondeur sans agresser la peau. Au contact de l'eau, le galet mousse et se rince facilement, sans film gras. Convient aussi pour enlever le maquillage du quotidien. Formulé sans huile de coco, il convient aux peaux sensibles comme aux peaux mixtes. Trois versions : argile bleue pour un nettoyage en profondeur, argile blanche pour une purification douce, argile rouge pour les peaux normales à mixtes.</p>
+              <p class="it-only">Un detergente solido che pulisce in profondità senza aggredire la pelle. A contatto con l'acqua, il panetto fa schiuma e si risciacqua facilmente, senza film unto. Va bene anche per rimuovere il trucco di tutti i giorni. Formulato senza olio di cocco, è adatto alle pelli sensibili come a quelle miste. Tre versioni : argilla blu per una detersione in profondità, argilla bianca per una pulizia delicata, argilla rossa per le pelli normali e miste.</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="produit-card">
         <div class="produit-card-img">
-          <img src="images/savons/soin-visage-blanc.jpg" alt="Soin visage argile blanche">
+          <img src="images/savons/trio-nettoyants-voyage.png" alt="Trio nettoyants format voyage">
         </div>
         <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Nettoyant visage – argile blanche · 60 g</p>
-          <p class="produit-card-name it-only">Detergente viso – argilla bianca · 60 g</p>
-          <p class="produit-card-price">9 €</p>
-        </div>
-      </div>
-
-      <div class="produit-card">
-        <div class="produit-card-img">
-          <img src="images/savons/soin-visage-rouge.png" alt="Soin visage argile rouge">
-        </div>
-        <div class="produit-card-info">
-          <p class="produit-card-name fr-only">Nettoyant visage – argile rouge · 60 g</p>
-          <p class="produit-card-name it-only">Detergente viso – argilla rossa · 60 g</p>
-          <p class="produit-card-price">9 €</p>
+          <p class="produit-card-name fr-only">Trio nettoyants format voyage · 25 g</p>
+          <p class="produit-card-name it-only">Trio detergenti formato viaggio · 25 g</p>
+          <p class="produit-card-price">15 €</p>
+          <div class="produit-desc">
+            <button class="produit-desc-btn fr-only">Description</button>
+            <button class="produit-desc-btn it-only">Descrizione</button>
+            <div class="produit-desc-content">
+              <p class="fr-only">La version mini pour partir léger ou tester avant d'acheter le grand format. Argile bleue, argile blanche et argile rouge : trois galets de 25 g, compacts et faciles à glisser dans une trousse de voyage.</p>
+              <p class="it-only">La versione mini per viaggiare leggeri o provare prima di acquistare il formato grande. Argilla blu, argilla bianca e argilla rossa : tre panetti da 25 g, compatti e facili da infilare in un beauty da viaggio.</p>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- TRIO VOYAGE -->
+  <!-- DÉMAQUILLANT LACTÉ -->
   <div class="trio-featured">
     <div class="trio-featured-img">
-      <img src="images/savons/trio-nettoyants-voyage.png" alt="Trio nettoyants format voyage">
+      <img src="images/savons/demaquillant-lacte.jpg" alt="Lait démaquillant solide Douceur lactée">
     </div>
     <div class="trio-featured-info">
-      <p class="produit-card-name fr-only">Trio nettoyants format voyage · 25 g</p>
-      <p class="produit-card-name it-only">Trio detergenti formato viaggio · 25 g</p>
-      <p class="produit-card-price">15 €</p>
-      <p class="trio-desc fr-only">La version mini pour partir léger ou tester avant d'acheter le grand format. Argile bleue, argile blanche et argile rouge : trois galets de 25 g, compacts et faciles à glisser dans une trousse de voyage.</p>
-      <p class="trio-desc it-only">La versione mini per viaggiare leggeri o provare prima di acquistare il formato grande. Argilla blu, argilla bianca e argilla rossa : tre panetti da 25 g, compatti e facili da infilare in un beauty da viaggio.</p>
+      <p class="produit-card-name fr-only">Lait démaquillant solide – Douceur lactée</p>
+      <p class="produit-card-name it-only">Latte struccante solido – Dolcezza lattea</p>
+      <p class="produit-card-price fr-only">70 g · 12 € &nbsp;|&nbsp; mini 25 g · 5 €</p>
+      <p class="produit-card-price it-only">70 g · 12 € &nbsp;|&nbsp; mini 25 g · 5 €</p>
+      <p class="nettoyant-variants fr-only">Karité, amande douce &amp; argile blanche</p>
+      <p class="nettoyant-variants it-only">Karité, mandorla dolce &amp; argilla bianca</p>
+      <div class="produit-desc">
+        <button class="produit-desc-btn fr-only">Description</button>
+        <button class="produit-desc-btn it-only">Descrizione</button>
+        <div class="produit-desc-content">
+          <p class="fr-only">Un geste doux et réconfortant pour finir la journée. Au contact de l'eau, ce galet fond et se transforme en un lait onctueux qui dissout le maquillage, y compris le mascara et le fond de teint, et les impuretés de la journée. Une mousse légère vient compléter le nettoyage, puis tout se rince facilement, sans film gras. Sa formule associe le beurre de karité et l'huile d'amande douce, qui nourrissent et adoucissent la peau, l'huile de ricin, qui démaquille les produits tenaces, et l'argile blanche, réputée pour sa douceur. La peau est propre, souple et confortable.</p>
+          <p class="it-only">Un gesto delicato e confortante per chiudere la giornata. A contatto con l'acqua, il panetto si scioglie e si trasforma in un latte vellutato che dissolve il trucco, anche mascara e fondotinta, e le impurità accumulate durante il giorno. Una leggera schiuma completa la detersione, poi tutto si risciacqua facilmente, senza film unto. La formula unisce il burro di karité e l'olio di mandorle dolci, che nutrono e ammorbidiscono la pelle, l'olio di ricino, che rimuove i prodotti più tenaci, e l'argilla bianca, nota per la sua dolcezza. La pelle è pulita, morbida e confortevole.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -662,6 +710,27 @@
       document.body.classList.add('it');
       document.documentElement.lang = 'it';
     }
+
+    // Carousel
+    document.querySelectorAll('[data-carousel]').forEach(carousel => {
+      const track = carousel.querySelector('.carousel-track');
+      const dots  = carousel.querySelectorAll('.carousel-dot');
+      const total = dots.length;
+      let idx = 0, startX = 0;
+      function goTo(n) {
+        idx = (n + total) % total;
+        track.style.transform = `translateX(-${idx * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+      carousel.querySelector('.carousel-prev').addEventListener('click', e => { e.stopPropagation(); goTo(idx - 1); });
+      carousel.querySelector('.carousel-next').addEventListener('click', e => { e.stopPropagation(); goTo(idx + 1); });
+      dots.forEach((dot, i) => dot.addEventListener('click', e => { e.stopPropagation(); goTo(i); }));
+      carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      carousel.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) goTo(dx < 0 ? idx + 1 : idx - 1);
+      });
+    });
   </script>
 
 </body>
